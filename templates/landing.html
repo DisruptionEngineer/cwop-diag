@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CWOP-Diag — AI-Powered Automotive Diagnostics</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/landing.css">
+</head>
+<body>
+    <!-- Ambient Effects -->
+    <div class="bg-grid"></div>
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+
+    <!-- Nav -->
+    <nav>
+        <div class="nav-inner">
+            <a href="/landing" class="nav-brand">
+                <span class="brand-c">C</span><span class="brand-w">W</span><span class="brand-o">O</span><span class="brand-p">P</span><span class="brand-dim">DIAG</span>
+            </a>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#hardware">Hardware</a>
+                <a href="#pricing">Pricing</a>
+            </div>
+            <a href="/" class="nav-cta">Open Dashboard</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="badge-dot"></span>
+                AI-Powered Diagnostics
+            </div>
+            <h1>
+                <span class="hero-line">Your Mechanic's</span>
+                <span class="hero-line hero-accent">Smartest Tool.</span>
+            </h1>
+            <p class="hero-sub">
+                CWOP-Diag reads your vehicle's OBD-II data, correlates trouble codes,
+                and delivers expert-level diagnostics using local AI &mdash; all from a
+                compact Raspberry Pi kiosk. No cloud. No subscription. Just answers.
+            </p>
+            <div class="hero-actions">
+                <a href="/" class="btn btn-primary">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    Launch Demo
+                </a>
+                <a href="#features" class="btn btn-ghost">See Features</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-value">333+</div>
+                    <div class="stat-label">DTC Codes</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <div class="stat-value">18</div>
+                    <div class="stat-label">Root Cause Patterns</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <div class="stat-value">100%</div>
+                    <div class="stat-label">Local / Private</div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="terminal">
+                <div class="terminal-bar">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                    <span class="terminal-title">cwop-diag --demo</span>
+                </div>
+                <div class="terminal-body">
+                    <div class="term-line"><span class="term-prompt">$</span> python app.py --demo</div>
+                    <div class="term-line term-fade"><span class="term-sys">==================================================</span></div>
+                    <div class="term-line term-fade"><span class="term-sys">  CWOP-Diag: Smart Automotive Diagnostic Tool</span></div>
+                    <div class="term-line term-fade"><span class="term-sys">==================================================</span></div>
+                    <div class="term-line"><span class="term-tag">[DB]</span> SQLite initialized</div>
+                    <div class="term-line"><span class="term-tag">[DTC]</span> Loaded <span class="term-val">333</span> diagnostic trouble codes</div>
+                    <div class="term-line"><span class="term-tag">[CWOP]</span> Context budget: <span class="term-val">1500</span> tokens</div>
+                    <div class="term-line"><span class="term-tag">[LLM]</span> Backend: <span class="term-val">demo</span></div>
+                    <div class="term-line"><span class="term-tag">[OBD]</span> Polling started <span class="term-dim">(2s interval)</span></div>
+                    <div class="term-line"><span class="term-tag">[Pay]</span> Demo payment mode</div>
+                    <div class="term-line term-blank"></div>
+                    <div class="term-line"><span class="term-accent">  Tech Dashboard:</span>    http://localhost:5005</div>
+                    <div class="term-line"><span class="term-accent">  Customer Screen:</span>   http://localhost:5005/customer</div>
+                    <div class="term-line"><span class="term-accent">  Mode:</span> <span class="term-val">DEMO</span></div>
+                    <div class="term-line term-cursor"><span class="term-prompt">$</span> <span class="cursor">_</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="features">
+        <div class="section-header">
+            <span class="section-tag">Capabilities</span>
+            <h2>Everything a diagnostic platform should be.</h2>
+            <p class="section-sub">Built for real shops. Powered by local AI. No internet required for core diagnostics.</p>
+        </div>
+        <div class="feature-grid">
+            <div class="feature-card feature-wide">
+                <div class="feature-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="1.5" stroke-linecap="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                </div>
+                <h3>Context Window Orchestration</h3>
+                <p>The CWOP engine manages a structured context window with dedicated slots for DTCs, sensor data, vehicle info, and analysis — giving the LLM exactly what it needs, nothing it doesn't.</p>
+                <div class="feature-tag">Core Architecture</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                </div>
+                <h3>Real-Time OBD-II</h3>
+                <p>Live sensor polling at 2-second intervals. RPM, coolant temp, fuel trims, MAF, O2 sensors, timing advance — all streaming in real time.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="1.5" stroke-linecap="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+                </div>
+                <h3>Vehicle Health Score</h3>
+                <p>Composite 0-100 score across 5 subsystems: engine, fuel system, emissions, cooling, and ignition. Instant letter grade for customers.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="1.5" stroke-linecap="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94L6.73 20.15a2.12 2.12 0 01-3-3l6.68-6.68a6 6 0 017.94-7.94l-3.76 3.77z"/></svg>
+                </div>
+                <h3>Root Cause Correlation</h3>
+                <p>18+ multi-DTC pattern rules identify when separate codes share a single root cause. Goes beyond code-by-code analysis.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                </div>
+                <h3>Dual-Screen Kiosk</h3>
+                <p>Technician dashboard on a 720x720 HyperPixel touchscreen. Customer-facing 720x1280 portrait display. Both screens purpose-built.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="1.5" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                </div>
+                <h3>VIN Decode</h3>
+                <p>Reads VIN from the vehicle's ECU via OBD-II Mode 09, decodes year/make/model/engine through the NHTSA API. Automatic vehicle identification.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="1.5" stroke-linecap="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+                </div>
+                <h3>Stripe Payments</h3>
+                <p>In-app repair estimates with Stripe Checkout integration. Customer pays on-screen. Webhook verification for reliability.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="1.5" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </div>
+                <h3>Diagnostic Reports</h3>
+                <p>Print-ready reports with health breakdown, DTC details, root cause analysis, technical diagnosis, and sensor snapshots. Professional quality.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="1.5" stroke-linecap="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </div>
+                <h3>Service History</h3>
+                <p>SQLite persistence tracks every session by VIN. Sensor logs, diagnosis records, and payment history. Full audit trail.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works" class="how-section">
+        <div class="section-header">
+            <span class="section-tag">Workflow</span>
+            <h2>Scan. Diagnose. Get paid.</h2>
+            <p class="section-sub">A complete diagnostic session in four steps.</p>
+        </div>
+        <div class="steps">
+            <div class="step">
+                <div class="step-num">01</div>
+                <div class="step-content">
+                    <h3>Connect</h3>
+                    <p>Plug the OBD-II adapter into the vehicle's diagnostic port. CWOP-Diag auto-detects the connection, reads the VIN, and starts polling live sensor data.</p>
+                </div>
+            </div>
+            <div class="step-connector"></div>
+            <div class="step">
+                <div class="step-num">02</div>
+                <div class="step-content">
+                    <h3>Scan & Analyze</h3>
+                    <p>Trouble codes are read and cross-referenced against 333+ DTC definitions. Root cause correlation identifies shared failures. Health score is computed across all subsystems.</p>
+                </div>
+            </div>
+            <div class="step-connector"></div>
+            <div class="step">
+                <div class="step-num">03</div>
+                <div class="step-content">
+                    <h3>AI Diagnosis</h3>
+                    <p>The local LLM receives a precisely structured context window and generates a technical analysis with specific diagnostic steps. A customer-friendly summary is generated for the second screen.</p>
+                </div>
+            </div>
+            <div class="step-connector"></div>
+            <div class="step">
+                <div class="step-num">04</div>
+                <div class="step-content">
+                    <h3>Estimate & Pay</h3>
+                    <p>The technician enters parts and labor. The estimate pushes to the customer screen. Customer pays via Stripe. Session is saved to the vehicle's service history.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hardware -->
+    <section id="hardware" class="hardware-section">
+        <div class="section-header">
+            <span class="section-tag">Hardware</span>
+            <h2>Runs on a Raspberry Pi.</h2>
+            <p class="section-sub">No server room. No cloud dependency. Fits on your workbench.</p>
+        </div>
+        <div class="hw-grid">
+            <div class="hw-card">
+                <div class="hw-name">Raspberry Pi 5</div>
+                <div class="hw-role">Diagnostic Engine</div>
+                <p>Runs the Flask server, local LLM inference, SQLite database, and both display screens. 8GB RAM recommended for larger models.</p>
+            </div>
+            <div class="hw-card">
+                <div class="hw-name">HyperPixel 4 Square</div>
+                <div class="hw-role">Tech Dashboard</div>
+                <p>720x720 touchscreen mounted on the Pi 5. Purpose-built UI shows DTCs, live sensors, health score, root cause, and AI analysis.</p>
+            </div>
+            <div class="hw-card">
+                <div class="hw-name">Touch Display 2</div>
+                <div class="hw-role">Customer Screen</div>
+                <p>720x1280 portrait display facing the customer. Shows vehicle info, health grade, diagnosis summary, estimate, and payment.</p>
+            </div>
+            <div class="hw-card">
+                <div class="hw-name">Veepeak OBDCheck BLE+</div>
+                <div class="hw-role">Vehicle Interface</div>
+                <p>Bluetooth Low Energy OBD-II adapter. Plugs into any 1996+ vehicle's diagnostic port. No wiring required.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack -->
+    <section class="stack-section">
+        <div class="section-header">
+            <span class="section-tag">Under the Hood</span>
+            <h2>Built with purpose.</h2>
+        </div>
+        <div class="stack-grid">
+            <div class="stack-item">
+                <div class="stack-name">Python / Flask</div>
+                <div class="stack-desc">Application server</div>
+            </div>
+            <div class="stack-item">
+                <div class="stack-name">python-OBD</div>
+                <div class="stack-desc">OBD-II protocol</div>
+            </div>
+            <div class="stack-item">
+                <div class="stack-name">Qwen 2.5 1.5B</div>
+                <div class="stack-desc">Local LLM</div>
+            </div>
+            <div class="stack-item">
+                <div class="stack-name">llama.cpp / Ollama</div>
+                <div class="stack-desc">LLM inference</div>
+            </div>
+            <div class="stack-item">
+                <div class="stack-name">SQLite + WAL</div>
+                <div class="stack-desc">Service history</div>
+            </div>
+            <div class="stack-item">
+                <div class="stack-name">Stripe Checkout</div>
+                <div class="stack-desc">Payments</div>
+            </div>
+            <div class="stack-item">
+                <div class="stack-name">NHTSA vPIC API</div>
+                <div class="stack-desc">VIN decoding</div>
+            </div>
+            <div class="stack-item">
+                <div class="stack-name">Jinja2</div>
+                <div class="stack-desc">Report templates</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="pricing-section">
+        <div class="section-header">
+            <span class="section-tag">Pricing</span>
+            <h2>Open source. Free forever.</h2>
+            <p class="section-sub">CWOP-Diag is open-source software. You only pay for the hardware.</p>
+        </div>
+        <div class="price-cards">
+            <div class="price-card">
+                <div class="price-tier">Demo</div>
+                <div class="price-amount">$0</div>
+                <div class="price-period">Run on any computer</div>
+                <ul class="price-features">
+                    <li>Simulated OBD-II data</li>
+                    <li>Full AI diagnostic engine</li>
+                    <li>All 333+ DTC codes</li>
+                    <li>Demo payment flow</li>
+                    <li>Health scoring</li>
+                    <li>Root cause analysis</li>
+                </ul>
+                <a href="/" class="btn btn-ghost btn-full">Try Demo</a>
+            </div>
+            <div class="price-card price-featured">
+                <div class="price-badge">Recommended</div>
+                <div class="price-tier">Full Kit</div>
+                <div class="price-amount">~$250</div>
+                <div class="price-period">One-time hardware cost</div>
+                <ul class="price-features">
+                    <li>Raspberry Pi 5 (8GB)</li>
+                    <li>HyperPixel 4 Square display</li>
+                    <li>Touch Display 2</li>
+                    <li>Veepeak OBD-II adapter</li>
+                    <li>Real vehicle diagnostics</li>
+                    <li>Stripe live payments</li>
+                    <li>No monthly fees</li>
+                </ul>
+                <a href="#hardware" class="btn btn-primary btn-full">View Hardware</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="cta-inner">
+            <h2>Ready to upgrade your shop?</h2>
+            <p>Start with the demo right now. No installation required.</p>
+            <a href="/" class="btn btn-primary btn-lg">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                Open Dashboard
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="landing-footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <span class="brand-c">C</span><span class="brand-w">W</span><span class="brand-o">O</span><span class="brand-p">P</span><span class="brand-dim">DIAG</span>
+            </div>
+            <div class="footer-sub">AI-Powered Automotive Diagnostics</div>
+            <div class="footer-links">
+                <a href="/">Dashboard</a>
+                <a href="/customer">Customer Screen</a>
+                <a href="/report">Reports</a>
+            </div>
+            <div class="footer-copy">&copy; 2026 CWOP-Diag. Open Source Software.</div>
+        </div>
+    </footer>
+</body>
+</html>

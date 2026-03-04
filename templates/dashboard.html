@@ -4,20 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=720, initial-scale=1.0, user-scalable=no">
     <title>CWOP-Diag</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
+    <!-- Ambient glow -->
+    <div class="ambient-glow"></div>
+
     <!-- Header -->
     <header id="header">
         <div class="header-left">
-            <span class="logo">CWOP</span>
+            <span class="logo">CWOP<span class="logo-dim">DIAG</span></span>
             <span class="status-dot" id="statusDot"></span>
             <span class="status-text" id="statusText">Connecting...</span>
         </div>
         <div class="header-right">
+            <button id="reportBtn" class="btn-icon" onclick="viewReport()" title="View Report" style="display:none;">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 1h5.5L12 4.5V12a1 1 0 01-1 1H3a1 1 0 01-1-1V2a1 1 0 011-1z" stroke="currentColor" stroke-width="1.2"/><path d="M8 1v4h4M5 8h4M5 10h3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+            </button>
+            <button id="newVehicleBtn" class="btn-secondary" onclick="newSession()">New</button>
             <span id="modeLabel" class="mode-badge">DEMO</span>
         </div>
     </header>
+
+    <!-- Vehicle Info Bar (shown when VIN decoded) -->
+    <div id="vehicleBar" class="vehicle-bar" style="display:none;">
+        <div class="vehicle-info">
+            <span class="vehicle-name" id="vehicleName"></span>
+            <span class="vehicle-vin" id="vehicleVin"></span>
+        </div>
+        <div class="health-badge" id="healthBadge">
+            <span class="health-score" id="healthScore">--</span>
+            <span class="health-grade" id="healthGrade"></span>
+        </div>
+    </div>
 
     <!-- DTC Panel -->
     <section id="dtcPanel" class="panel">
@@ -28,6 +50,15 @@
         <div id="dtcList" class="dtc-list">
             <div class="empty-state">Scanning...</div>
         </div>
+    </section>
+
+    <!-- Root Cause Correlations (shown when multi-DTC patterns detected) -->
+    <section id="rootCausePanel" class="panel" style="display:none;">
+        <div class="panel-header">
+            <h2>Root Cause</h2>
+            <span class="badge badge-accent" id="corrCount">0</span>
+        </div>
+        <div id="rootCauseList" class="root-cause-list"></div>
     </section>
 
     <!-- Live Sensors (compact grid) -->
@@ -50,6 +81,54 @@
             <div class="empty-state">Press Analyze to run diagnostic</div>
         </div>
         <div id="aiMeta" class="ai-meta"></div>
+    </section>
+
+    <!-- Estimate Entry (shown after diagnosis) -->
+    <section id="estimatePanel" class="panel estimate-panel hidden">
+        <div class="panel-header">
+            <h2>Estimate</h2>
+            <span id="paymentBadge" class="payment-badge hidden">PAID</span>
+        </div>
+        <div class="estimate-form">
+            <div class="estimate-inputs">
+                <div class="est-field">
+                    <label>Diag</label>
+                    <div class="est-input-wrap">
+                        <span class="est-dollar">$</span>
+                        <input type="number" id="estDiag" value="50" min="0" step="5">
+                    </div>
+                </div>
+                <div class="est-field">
+                    <label>Parts</label>
+                    <div class="est-input-wrap">
+                        <span class="est-dollar">$</span>
+                        <input type="number" id="estParts" value="0" min="0" step="5">
+                    </div>
+                </div>
+                <div class="est-field">
+                    <label>Labor</label>
+                    <div class="est-input-wrap">
+                        <span class="est-dollar">$</span>
+                        <input type="number" id="estLabor" value="0" min="0" step="5">
+                    </div>
+                </div>
+                <div class="est-total">
+                    <label>Total</label>
+                    <span id="estTotalDisplay">$50</span>
+                </div>
+            </div>
+            <button id="sendEstBtn" class="btn-send" onclick="sendToCustomer()">
+                Send to Customer Screen
+            </button>
+        </div>
+    </section>
+
+    <!-- Health Breakdown (shown when health score computed) -->
+    <section id="healthPanel" class="panel" style="display:none;">
+        <div class="panel-header">
+            <h2>Health Breakdown</h2>
+        </div>
+        <div id="healthGrid" class="health-grid"></div>
     </section>
 
     <!-- Context Budget Bar -->

@@ -15,7 +15,8 @@ from dataclasses import dataclass, field
 try:
     import obd
     OBD_AVAILABLE = True
-except ImportError:
+except (ImportError, TypeError):
+    # TypeError: pint's frozen dataclass breaks on Python 3.14+
     OBD_AVAILABLE = False
 
 

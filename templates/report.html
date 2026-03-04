@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnostic Report — {{ vehicle_str }}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #ffffff;
+            --surface: #f8fafc;
+            --border: #e2e8f0;
+            --text: #1e293b;
+            --text-dim: #64748b;
+            --accent: #10B981;
+            --red: #ef4444;
+            --orange: #f97316;
+            --yellow: #eab308;
+        }
+
+        @media print {
+            body { width: 100%; }
+            .no-print { display: none !important; }
+            @page { margin: 0.5in; }
+        }
+
+        body {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 32px;
+            font-family: 'Outfit', -apple-system, sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+        }
+
+        /* Header */
+        .report-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--accent);
+            margin-bottom: 24px;
+        }
+
+        .shop-info h1 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .shop-info .tagline {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 4px;
+        }
+
+        .report-meta {
+            text-align: right;
+            font-size: 12px;
+            color: var(--text-dim);
+        }
+
+        .report-meta .report-id {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+        }
+
+        /* Vehicle Info */
+        .vehicle-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .vehicle-name {
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .vehicle-vin {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--text-dim);
+            margin-top: 2px;
+        }
+
+        /* Health Score */
+        .health-score-card {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .score-circle {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 24px;
+            font-weight: 800;
+            color: white;
+        }
+
+        .score-circle.grade-a { background: var(--accent); }
+        .score-circle.grade-b { background: #22c55e; }
+        .score-circle.grade-c { background: var(--yellow); }
+        .score-circle.grade-d { background: var(--orange); }
+        .score-circle.grade-f { background: var(--red); }
+
+        .score-label {
+            font-size: 12px;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .score-grade {
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        /* Sections */
+        .section {
+            margin-bottom: 24px;
+        }
+
+        .section-title {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent);
+            margin-bottom: 12px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        /* DTC Table */
+        .dtc-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+
+        .dtc-table th {
+            text-align: left;
+            font-weight: 600;
+            color: var(--text-dim);
+            padding: 6px 8px;
+            border-bottom: 2px solid var(--border);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .dtc-table td {
+            padding: 8px;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+        }
+
+        .dtc-code {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .dtc-code.high { color: var(--red); }
+        .dtc-code.moderate { color: var(--orange); }
+        .dtc-code.low { color: var(--yellow); }
+
+        .severity-pill {
+            display: inline-block;
+            padding: 1px 8px;
+            border-radius: 10px;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .severity-pill.high { background: rgba(239,68,68,0.1); color: var(--red); }
+        .severity-pill.moderate { background: rgba(249,115,22,0.1); color: var(--orange); }
+        .severity-pill.low { background: rgba(234,179,8,0.1); color: var(--yellow); }
+
+        /* Root Cause */
+        .root-cause-item {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent);
+            border-radius: 0 6px 6px 0;
+            padding: 12px 16px;
+            margin-bottom: 8px;
+        }
+
+        .root-cause-codes {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .root-cause-text {
+            font-size: 14px;
+            font-weight: 600;
+            margin-top: 4px;
+        }
+
+        .root-cause-fix {
+            font-size: 13px;
+            color: var(--text-dim);
+            margin-top: 4px;
+        }
+
+        /* Diagnosis */
+        .diagnosis-text {
+            white-space: pre-wrap;
+            font-size: 13px;
+            line-height: 1.7;
+            background: var(--surface);
+            padding: 16px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        /* Sensor Grid */
+        .sensor-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+        }
+
+        .sensor-item {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 8px;
+            text-align: center;
+        }
+
+        .sensor-name {
+            font-size: 10px;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .sensor-val {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            font-weight: 600;
+            margin-top: 2px;
+        }
+
+        /* Estimate */
+        .estimate-table {
+            width: 100%;
+            max-width: 400px;
+            border-collapse: collapse;
+        }
+
+        .estimate-table td {
+            padding: 6px 0;
+            font-size: 14px;
+        }
+
+        .estimate-table .label { color: var(--text-dim); }
+
+        .estimate-table .amount {
+            text-align: right;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 600;
+        }
+
+        .estimate-table .total td {
+            border-top: 2px solid var(--text);
+            padding-top: 10px;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .estimate-table .total .amount { color: var(--accent); }
+
+        /* Health Breakdown */
+        .health-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+        }
+
+        .health-item {
+            text-align: center;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 10px 8px;
+        }
+
+        .health-bar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin: 0 auto 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            font-weight: 700;
+            color: white;
+        }
+
+        .health-name {
+            font-size: 10px;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        /* Footer */
+        .report-footer {
+            margin-top: 32px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 11px;
+            color: var(--text-dim);
+        }
+
+        .report-footer .brand {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: 2px;
+        }
+
+        /* Print button */
+        .print-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--text);
+            padding: 12px;
+            text-align: center;
+        }
+
+        .print-btn {
+            padding: 10px 32px;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .print-btn:hover { background: #059669; }
+    </style>
+</head>
+<body>
+    <!-- Report Header -->
+    <div class="report-header">
+        <div class="shop-info">
+            <h1>{{ shop_name }}</h1>
+            <div class="tagline">Vehicle Diagnostic Report</div>
+        </div>
+        <div class="report-meta">
+            <div>{{ date_str }}</div>
+            <div class="report-id">Session: {{ session_id }}</div>
+        </div>
+    </div>
+
+    <!-- Vehicle + Health Score -->
+    <div class="vehicle-card">
+        <div>
+            <div class="vehicle-name">{{ vehicle_str }}</div>
+            {% if vin %}<div class="vehicle-vin">VIN: {{ vin }}</div>{% endif %}
+        </div>
+        <div class="health-score-card">
+            <div class="score-circle grade-{{ health.grade|lower }}">{{ health.total }}</div>
+            <div>
+                <div class="score-label">Health</div>
+                <div class="score-grade">Grade {{ health.grade }}</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Health Breakdown -->
+    {% if health.breakdown %}
+    <div class="section">
+        <div class="section-title">Health Breakdown</div>
+        <div class="health-grid">
+            {% for name, data in health.breakdown.items() %}
+            <div class="health-item">
+                <div class="health-bar" style="background: {{ _score_color(data.score) }}">{{ data.score }}</div>
+                <div class="health-name">{{ name|replace('_', ' ') }}</div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Trouble Codes -->
+    {% if dtcs %}
+    <div class="section">
+        <div class="section-title">Trouble Codes Found ({{ dtcs|length }})</div>
+        <table class="dtc-table">
+            <thead>
+                <tr>
+                    <th>Code</th>
+                    <th>Description</th>
+                    <th>Severity</th>
+                    <th>Common Causes</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for dtc in dtcs %}
+                <tr>
+                    <td><span class="dtc-code {{ dtc.severity }}">{{ dtc.code }}</span></td>
+                    <td>{{ dtc.desc }}</td>
+                    <td><span class="severity-pill {{ dtc.severity }}">{{ dtc.severity }}</span></td>
+                    <td>{{ dtc.common_causes|join(', ') }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% endif %}
+
+    <!-- Root Cause Analysis -->
+    {% if correlations %}
+    <div class="section">
+        <div class="section-title">Root Cause Analysis</div>
+        {% for corr in correlations %}
+        <div class="root-cause-item">
+            <div class="root-cause-codes">{{ corr.codes|join(' + ') }}</div>
+            <div class="root-cause-text">{{ corr.root_cause }}</div>
+            <div class="root-cause-fix">Fix: {{ corr.fix }}</div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <!-- AI Diagnosis -->
+    {% if diagnosis %}
+    <div class="section">
+        <div class="section-title">Technical Analysis</div>
+        <div class="diagnosis-text">{{ diagnosis }}</div>
+    </div>
+    {% endif %}
+
+    <!-- Live Sensor Data -->
+    {% if sensors %}
+    <div class="section">
+        <div class="section-title">Sensor Readings at Time of Diagnosis</div>
+        <div class="sensor-grid">
+            {% for name, value in sensors.items() %}
+            <div class="sensor-item">
+                <div class="sensor-name">{{ name }}</div>
+                <div class="sensor-val">{{ value }}</div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Estimate -->
+    {% if estimate and estimate.total > 0 %}
+    <div class="section">
+        <div class="section-title">Repair Estimate</div>
+        <table class="estimate-table">
+            <tr>
+                <td class="label">Diagnostic Fee</td>
+                <td class="amount">${{ "%.2f"|format(estimate.diagnosis_fee) }}</td>
+            </tr>
+            <tr>
+                <td class="label">Parts</td>
+                <td class="amount">${{ "%.2f"|format(estimate.parts) }}</td>
+            </tr>
+            <tr>
+                <td class="label">Labor</td>
+                <td class="amount">${{ "%.2f"|format(estimate.labor) }}</td>
+            </tr>
+            <tr class="total">
+                <td>Total</td>
+                <td class="amount">${{ "%.2f"|format(estimate.total) }}</td>
+            </tr>
+        </table>
+    </div>
+    {% endif %}
+
+    <!-- Footer -->
+    <div class="report-footer">
+        <p>Generated by <span class="brand">CWOPDIAG</span> — AI-Powered Vehicle Diagnostics</p>
+        <p>This report is for informational purposes. Always consult a certified mechanic for repairs.</p>
+    </div>
+
+    <!-- Print Button (hidden when printing) -->
+    <div class="print-bar no-print">
+        <button class="print-btn" onclick="window.print()">Print / Save as PDF</button>
+    </div>
+
+    <script>
+        // Add padding at bottom for print bar
+        document.body.style.paddingBottom = '80px';
+    </script>
+</body>
+</html>

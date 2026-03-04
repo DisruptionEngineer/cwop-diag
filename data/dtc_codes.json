@@ -1,0 +1,1801 @@
+{
+  "P0103": {
+    "desc": "Mass Air Flow Circuit High",
+    "severity": "moderate",
+    "system": "fuel_air",
+    "common_causes": ["Faulty MAF sensor", "Short circuit in wiring", "Contaminated sensor element"],
+    "verified_fix": "Replace MAF sensor"
+  },
+  "P0104": {
+    "desc": "Mass Air Flow Circuit Intermittent",
+    "severity": "moderate",
+    "system": "fuel_air",
+    "common_causes": ["Loose MAF connector", "Intermittent wiring fault", "Vibration damage"],
+    "verified_fix": "Inspect and reseat MAF connector; replace if corroded"
+  },
+  "P0105": {
+    "desc": "MAP/Barometric Pressure Circuit Malfunction",
+    "severity": "moderate",
+    "system": "fuel_air",
+    "common_causes": ["Faulty MAP sensor", "Vacuum hose disconnected", "Wiring open/short"],
+    "verified_fix": "Check vacuum hose connection to MAP sensor; replace sensor if faulty"
+  },
+  "P0108": {
+    "desc": "MAP Sensor Circuit High",
+    "severity": "moderate",
+    "system": "fuel_air",
+    "common_causes": ["Faulty MAP sensor", "Short to voltage in signal wire", "Vacuum leak"],
+    "verified_fix": "Replace MAP sensor after verifying wiring integrity"
+  },
+  "P0111": {
+    "desc": "Intake Air Temperature Sensor Range/Performance",
+    "severity": "low",
+    "system": "fuel_air",
+    "common_causes": ["IAT sensor reading out of range", "Heat soak near exhaust", "Dirty sensor"],
+    "verified_fix": "Clean or replace IAT sensor"
+  },
+  "P0112": {
+    "desc": "Intake Air Temperature Circuit Low",
+    "severity": "low",
+    "system": "fuel_air",
+    "common_causes": ["Short to ground in IAT circuit", "Faulty IAT sensor", "Damaged wiring"],
+    "verified_fix": "Replace IAT sensor"
+  },
+  "P0113": {
+    "desc": "Intake Air Temperature Circuit High",
+    "severity": "low",
+    "system": "fuel_air",
+    "common_causes": ["Open circuit in IAT wiring", "Faulty IAT sensor", "Corroded connector"],
+    "verified_fix": "Repair open circuit or replace IAT sensor"
+  },
+  "P0122": {
+    "desc": "Throttle Position Sensor Circuit Low",
+    "severity": "high",
+    "system": "fuel_air",
+    "common_causes": ["Faulty TPS", "Short to ground in signal wire", "Bad ground connection"],
+    "verified_fix": "Replace TPS and verify wiring"
+  },
+  "P0123": {
+    "desc": "Throttle Position Sensor Circuit High",
+    "severity": "high",
+    "system": "fuel_air",
+    "common_causes": ["Faulty TPS", "Short to voltage in signal wire", "Corroded connector pins"],
+    "verified_fix": "Replace TPS"
+  },
+  "P0132": {
+    "desc": "O2 Sensor Circuit High Voltage (Bank 1 Sensor 1)",
+    "severity": "moderate",
+    "system": "fuel_air",
+    "common_causes": ["Rich fuel condition", "Faulty O2 sensor", "Short in sensor wiring"],
+    "verified_fix": "Diagnose rich condition; replace O2 sensor if internally shorted"
+  },
+  "P0134": {
+    "desc": "O2 Sensor No Activity Detected (Bank 1 Sensor 1)",
+    "severity": "moderate",
+    "system": "fuel_air",
+    "common_causes": ["Failed O2 sensor", "Open heater circuit", "Exhaust leak near sensor"],
+    "verified_fix": "Replace O2 sensor"
+  },
+  "P0136": {
+    "desc": "O2 Sensor Circuit Malfunction (Bank 1 Sensor 2)",
+    "severity": "moderate",
+    "system": "fuel_air",
+    "common_causes": ["Faulty downstream O2 sensor", "Wiring damage", "Exhaust leak"],
+    "verified_fix": "Replace Bank 1 Sensor 2 O2 sensor"
+  },
+  "P0137": {
+    "desc": "O2 Sensor Circuit Low Voltage (Bank 1 Sensor 2)",
+    "severity": "moderate",
+    "system": "fuel_air",
+    "common_causes": ["Lean exhaust condition", "Faulty downstream O2 sensor", "Wiring issue"],
+    "verified_fix": "Replace downstream O2 sensor"
+  },
+  "P0138": {
+    "desc": "O2 Sensor Circuit High Voltage (Bank 1 Sensor 2)",
+    "severity": "moderate",
+    "system": "fuel_air",
+    "common_causes": ["Rich condition downstream", "Faulty O2 sensor", "Sensor wire short"],
+    "verified_fix": "Replace downstream O2 sensor after checking for rich condition"
+  },
+  "P0139": {
+    "desc": "O2 Sensor Slow Response (Bank 1 Sensor 2)",
+    "severity": "low",
+    "system": "fuel_air",
+    "common_causes": ["Aging O2 sensor", "Contaminated sensor element", "Catalytic converter issue"],
+    "verified_fix": "Replace downstream O2 sensor"
+  },
+  "P0140": {
+    "desc": "O2 Sensor No Activity Detected (Bank 1 Sensor 2)",
+    "severity": "moderate",
+    "system": "fuel_air",
+    "common_causes": ["Failed downstream O2 sensor", "Open circuit", "Heater failure"],
+    "verified_fix": "Replace downstream O2 sensor"
+  },
+  "P0141": {
+    "desc": "O2 Sensor Heater Circuit Malfunction (Bank 1 Sensor 2)",
+    "severity": "low",
+    "system": "fuel_air",
+    "common_causes": ["Blown fuse", "Faulty heater element in sensor", "Wiring open"],
+    "verified_fix": "Check fuse; replace O2 sensor if heater element failed"
+  },
+  "P0150": {
+    "desc": "O2 Sensor Circuit Malfunction (Bank 2 Sensor 1)",
+    "severity": "moderate",
+    "system": "fuel_air",
+    "common_causes": ["Faulty O2 sensor", "Wiring damage", "Exhaust leak near sensor"],
+    "verified_fix": "Replace Bank 2 Sensor 1 O2 sensor"
+  },
+  "P0151": {
+    "desc": "O2 Sensor Circuit Low Voltage (Bank 2 Sensor 1)",
+    "severity": "moderate",
+    "system": "fuel_air",
+    "common_causes": ["Lean condition Bank 2", "Faulty O2 sensor", "Vacuum leak"],
+    "verified_fix": "Check for vacuum leaks; replace O2 sensor"
+  },
+  "P0152": {
+    "desc": "O2 Sensor Circuit High Voltage (Bank 2 Sensor 1)",
+    "severity": "moderate",
+    "system": "fuel_air",
+    "common_causes": ["Rich condition Bank 2", "Faulty O2 sensor", "Shorted signal wire"],
+    "verified_fix": "Diagnose rich condition; replace O2 sensor"
+  },
+  "P0153": {
+    "desc": "O2 Sensor Slow Response (Bank 2 Sensor 1)",
+    "severity": "moderate",
+    "system": "fuel_air",
+    "common_causes": ["Aging O2 sensor", "Contaminated sensor", "Exhaust leak"],
+    "verified_fix": "Replace Bank 2 Sensor 1 O2 sensor"
+  },
+  "P0154": {
+    "desc": "O2 Sensor No Activity Detected (Bank 2 Sensor 1)",
+    "severity": "moderate",
+    "system": "fuel_air",
+    "common_causes": ["Failed O2 sensor", "Open heater circuit", "Connector fault"],
+    "verified_fix": "Replace O2 sensor"
+  },
+  "P0155": {
+    "desc": "O2 Sensor Heater Circuit Malfunction (Bank 2 Sensor 1)",
+    "severity": "low",
+    "system": "fuel_air",
+    "common_causes": ["Blown fuse", "Faulty heater element", "Wiring open/short"],
+    "verified_fix": "Check fuse and relay; replace O2 sensor if heater failed"
+  },
+  "P0156": {
+    "desc": "O2 Sensor Circuit Malfunction (Bank 2 Sensor 2)",
+    "severity": "moderate",
+    "system": "fuel_air",
+    "common_causes": ["Faulty downstream O2 sensor", "Wiring fault", "Exhaust leak"],
+    "verified_fix": "Replace Bank 2 Sensor 2 O2 sensor"
+  },
+  "P0157": {
+    "desc": "O2 Sensor Circuit Low Voltage (Bank 2 Sensor 2)",
+    "severity": "moderate",
+    "system": "fuel_air",
+    "common_causes": ["Lean exhaust downstream", "Faulty O2 sensor", "Open circuit"],
+    "verified_fix": "Replace downstream O2 sensor"
+  },
+  "P0158": {
+    "desc": "O2 Sensor Circuit High Voltage (Bank 2 Sensor 2)",
+    "severity": "moderate",
+    "system": "fuel_air",
+    "common_causes": ["Rich exhaust downstream", "Faulty O2 sensor", "Short in wiring"],
+    "verified_fix": "Replace downstream O2 sensor"
+  },
+  "P0160": {
+    "desc": "O2 Sensor No Activity Detected (Bank 2 Sensor 2)",
+    "severity": "moderate",
+    "system": "fuel_air",
+    "common_causes": ["Failed downstream O2 sensor", "Open circuit", "Corroded connector"],
+    "verified_fix": "Replace O2 sensor"
+  },
+  "P0161": {
+    "desc": "O2 Sensor Heater Circuit Malfunction (Bank 2 Sensor 2)",
+    "severity": "low",
+    "system": "fuel_air",
+    "common_causes": ["Blown fuse", "Faulty heater element", "Wiring damage"],
+    "verified_fix": "Check fuse; replace O2 sensor"
+  },
+  "P0170": {
+    "desc": "Fuel Trim Malfunction (Bank 1)",
+    "severity": "moderate",
+    "system": "fuel_air",
+    "common_causes": ["Vacuum leak", "Faulty MAF sensor", "Fuel pressure issue", "O2 sensor fault"],
+    "verified_fix": "Smoke test for vacuum leaks; clean MAF sensor"
+  },
+  "P0173": {
+    "desc": "Fuel Trim Malfunction (Bank 2)",
+    "severity": "moderate",
+    "system": "fuel_air",
+    "common_causes": ["Vacuum leak on Bank 2", "Faulty MAF sensor", "Fuel delivery issue"],
+    "verified_fix": "Smoke test for vacuum leaks; inspect fuel system"
+  },
+  "P0176": {
+    "desc": "Fuel Composition Sensor Circuit Malfunction",
+    "severity": "moderate",
+    "system": "fuel_air",
+    "common_causes": ["Faulty flex-fuel sensor", "Wiring damage", "Contaminated fuel"],
+    "verified_fix": "Replace fuel composition sensor"
+  },
+  "P0180": {
+    "desc": "Fuel Temperature Sensor A Circuit Malfunction",
+    "severity": "low",
+    "system": "fuel_air",
+    "common_causes": ["Faulty fuel temp sensor", "Open or short circuit", "Corroded connector"],
+    "verified_fix": "Replace fuel temperature sensor"
+  },
+  "P0191": {
+    "desc": "Fuel Rail Pressure Sensor Range/Performance",
+    "severity": "high",
+    "system": "fuel_air",
+    "common_causes": ["Faulty fuel rail pressure sensor", "Fuel pump weak", "Clogged fuel filter"],
+    "verified_fix": "Test fuel pressure; replace sensor or fuel pump as needed"
+  },
+  "P0192": {
+    "desc": "Fuel Rail Pressure Sensor Circuit Low",
+    "severity": "high",
+    "system": "fuel_air",
+    "common_causes": ["Short to ground in sensor circuit", "Faulty sensor", "Low fuel pressure"],
+    "verified_fix": "Replace fuel rail pressure sensor"
+  },
+  "P0193": {
+    "desc": "Fuel Rail Pressure Sensor Circuit High",
+    "severity": "high",
+    "system": "fuel_air",
+    "common_causes": ["Short to voltage in sensor circuit", "Faulty sensor", "High fuel pressure"],
+    "verified_fix": "Replace fuel rail pressure sensor; check fuel pressure regulator"
+  },
+  "P0202": {
+    "desc": "Injector Circuit Malfunction - Cylinder 2",
+    "severity": "high",
+    "system": "fuel_air",
+    "common_causes": ["Faulty injector cyl 2", "Open/short in wiring", "ECM driver fault"],
+    "verified_fix": "Test injector resistance; replace injector or repair wiring"
+  },
+  "P0203": {
+    "desc": "Injector Circuit Malfunction - Cylinder 3",
+    "severity": "high",
+    "system": "fuel_air",
+    "common_causes": ["Faulty injector cyl 3", "Open/short in wiring", "ECM driver fault"],
+    "verified_fix": "Test injector resistance; replace injector or repair wiring"
+  },
+  "P0204": {
+    "desc": "Injector Circuit Malfunction - Cylinder 4",
+    "severity": "high",
+    "system": "fuel_air",
+    "common_causes": ["Faulty injector cyl 4", "Open/short in wiring", "ECM driver fault"],
+    "verified_fix": "Test injector resistance; replace injector or repair wiring"
+  },
+  "P0205": {
+    "desc": "Injector Circuit Malfunction - Cylinder 5",
+    "severity": "high",
+    "system": "fuel_air",
+    "common_causes": ["Faulty injector cyl 5", "Open/short in wiring", "Connector corrosion"],
+    "verified_fix": "Test injector resistance; replace injector or repair wiring"
+  },
+  "P0206": {
+    "desc": "Injector Circuit Malfunction - Cylinder 6",
+    "severity": "high",
+    "system": "fuel_air",
+    "common_causes": ["Faulty injector cyl 6", "Open/short in wiring", "Connector corrosion"],
+    "verified_fix": "Test injector resistance; replace injector or repair wiring"
+  },
+  "P0207": {
+    "desc": "Injector Circuit Malfunction - Cylinder 7",
+    "severity": "high",
+    "system": "fuel_air",
+    "common_causes": ["Faulty injector cyl 7", "Open/short in wiring", "ECM driver fault"],
+    "verified_fix": "Test injector resistance; replace injector or repair wiring"
+  },
+  "P0208": {
+    "desc": "Injector Circuit Malfunction - Cylinder 8",
+    "severity": "high",
+    "system": "fuel_air",
+    "common_causes": ["Faulty injector cyl 8", "Open/short in wiring", "ECM driver fault"],
+    "verified_fix": "Test injector resistance; replace injector or repair wiring"
+  },
+  "P0215": {
+    "desc": "Engine Shutoff Solenoid Malfunction",
+    "severity": "high",
+    "system": "fuel_air",
+    "common_causes": ["Faulty shutoff solenoid", "Wiring open/short", "ECM relay fault"],
+    "verified_fix": "Replace engine shutoff solenoid"
+  },
+  "P0217": {
+    "desc": "Engine Overtemperature Condition",
+    "severity": "high",
+    "system": "cooling",
+    "common_causes": ["Low coolant level", "Failed thermostat", "Water pump failure", "Radiator blockage"],
+    "verified_fix": "Diagnose cooling system; replace thermostat or water pump"
+  },
+  "P0218": {
+    "desc": "Transmission Over Temperature Condition",
+    "severity": "high",
+    "system": "transmission",
+    "common_causes": ["Low transmission fluid", "Failed trans cooler", "Heavy towing", "Internal trans damage"],
+    "verified_fix": "Check and fill transmission fluid; inspect trans cooler lines"
+  },
+  "P0220": {
+    "desc": "Throttle/Pedal Position Sensor B Circuit Malfunction",
+    "severity": "high",
+    "system": "fuel_air",
+    "common_causes": ["Faulty TPS B sensor", "Wiring fault", "Electronic throttle body failure"],
+    "verified_fix": "Replace throttle body assembly or TPS"
+  },
+  "P0221": {
+    "desc": "Throttle/Pedal Position Sensor B Range/Performance",
+    "severity": "high",
+    "system": "fuel_air",
+    "common_causes": ["Worn TPS B", "Carbon buildup", "Wiring intermittent"],
+    "verified_fix": "Clean throttle body; replace TPS if out of range"
+  },
+  "P0222": {
+    "desc": "Throttle/Pedal Position Sensor B Circuit Low",
+    "severity": "high",
+    "system": "fuel_air",
+    "common_causes": ["Short to ground in TPS B circuit", "Faulty sensor", "Damaged wiring"],
+    "verified_fix": "Replace TPS or throttle body assembly"
+  },
+  "P0223": {
+    "desc": "Throttle/Pedal Position Sensor B Circuit High",
+    "severity": "high",
+    "system": "fuel_air",
+    "common_causes": ["Short to voltage in TPS B circuit", "Faulty sensor", "Connector issue"],
+    "verified_fix": "Replace TPS or throttle body assembly"
+  },
+  "P0230": {
+    "desc": "Fuel Pump Primary Circuit Malfunction",
+    "severity": "high",
+    "system": "fuel_air",
+    "common_causes": ["Faulty fuel pump relay", "Wiring open/short", "Failed fuel pump"],
+    "verified_fix": "Replace fuel pump relay; test fuel pump and wiring"
+  },
+  "P0231": {
+    "desc": "Fuel Pump Secondary Circuit Low",
+    "severity": "high",
+    "system": "fuel_air",
+    "common_causes": ["Fuel pump failure", "Wiring short to ground", "Bad fuel pump relay"],
+    "verified_fix": "Replace fuel pump"
+  },
+  "P0232": {
+    "desc": "Fuel Pump Secondary Circuit High",
+    "severity": "high",
+    "system": "fuel_air",
+    "common_causes": ["Short to voltage in fuel pump circuit", "Relay stuck closed", "Wiring fault"],
+    "verified_fix": "Replace fuel pump relay; repair wiring"
+  },
+  "P0240": {
+    "desc": "Turbocharger Boost Sensor B Circuit Malfunction",
+    "severity": "moderate",
+    "system": "fuel_air",
+    "common_causes": ["Faulty boost pressure sensor", "Boost leak", "Wiring issue"],
+    "verified_fix": "Replace boost pressure sensor"
+  },
+  "P0243": {
+    "desc": "Turbocharger Wastegate Solenoid A Malfunction",
+    "severity": "moderate",
+    "system": "fuel_air",
+    "common_causes": ["Faulty wastegate solenoid", "Stuck wastegate", "Vacuum line leak"],
+    "verified_fix": "Replace wastegate solenoid; check vacuum lines"
+  },
+  "P0244": {
+    "desc": "Turbocharger Wastegate Solenoid A Range/Performance",
+    "severity": "moderate",
+    "system": "fuel_air",
+    "common_causes": ["Stuck wastegate actuator", "Solenoid weak", "Boost control issue"],
+    "verified_fix": "Replace wastegate actuator or solenoid"
+  },
+  "P0251": {
+    "desc": "Injection Pump Fuel Metering Control A Malfunction (Diesel)",
+    "severity": "high",
+    "system": "fuel_air",
+    "common_causes": ["Faulty injection pump", "Fuel metering valve failure", "Wiring issue"],
+    "verified_fix": "Replace fuel metering control valve on injection pump"
+  },
+  "P0261": {
+    "desc": "Cylinder 1 Injector Circuit Low",
+    "severity": "high",
+    "system": "fuel_air",
+    "common_causes": ["Injector short to ground", "Damaged wiring harness", "Faulty injector"],
+    "verified_fix": "Test injector; repair wiring or replace injector"
+  },
+  "P0262": {
+    "desc": "Cylinder 1 Injector Circuit High",
+    "severity": "high",
+    "system": "fuel_air",
+    "common_causes": ["Injector short to voltage", "Wiring fault", "ECM driver issue"],
+    "verified_fix": "Repair wiring; replace injector if shorted internally"
+  },
+  "P0299": {
+    "desc": "Turbocharger/Supercharger Underboost Condition",
+    "severity": "moderate",
+    "system": "fuel_air",
+    "common_causes": ["Boost leak in intercooler piping", "Failed wastegate actuator", "Worn turbo bearings"],
+    "verified_fix": "Inspect boost system for leaks; replace turbo if worn"
+  },
+  "P0336": {
+    "desc": "Crankshaft Position Sensor Range/Performance",
+    "severity": "high",
+    "system": "ignition",
+    "common_causes": ["Damaged reluctor wheel", "Excessive sensor gap", "Wiring intermittent"],
+    "verified_fix": "Inspect reluctor wheel; replace CKP sensor"
+  },
+  "P0341": {
+    "desc": "Camshaft Position Sensor Range/Performance",
+    "severity": "high",
+    "system": "ignition",
+    "common_causes": ["Timing chain stretched", "CMP sensor failing", "Reluctor wheel damaged"],
+    "verified_fix": "Check timing chain/belt; replace CMP sensor"
+  },
+  "P0342": {
+    "desc": "Camshaft Position Sensor Circuit Low (Bank 1)",
+    "severity": "high",
+    "system": "ignition",
+    "common_causes": ["Short to ground in CMP circuit", "Faulty CMP sensor", "Wiring damage"],
+    "verified_fix": "Replace CMP sensor; repair wiring"
+  },
+  "P0343": {
+    "desc": "Camshaft Position Sensor Circuit High (Bank 1)",
+    "severity": "high",
+    "system": "ignition",
+    "common_causes": ["Short to voltage in CMP circuit", "Faulty CMP sensor", "Bad connector"],
+    "verified_fix": "Replace CMP sensor"
+  },
+  "P0345": {
+    "desc": "Camshaft Position Sensor Circuit Malfunction (Bank 2)",
+    "severity": "high",
+    "system": "ignition",
+    "common_causes": ["Faulty Bank 2 CMP sensor", "Wiring fault", "Timing issue"],
+    "verified_fix": "Replace Bank 2 CMP sensor"
+  },
+  "P0350": {
+    "desc": "Ignition Coil Primary/Secondary Circuit Malfunction",
+    "severity": "high",
+    "system": "ignition",
+    "common_causes": ["Faulty ignition coil", "Wiring open/short", "ECM driver fault"],
+    "verified_fix": "Replace ignition coil; check wiring"
+  },
+  "P0351": {
+    "desc": "Ignition Coil A Primary/Secondary Circuit Malfunction",
+    "severity": "high",
+    "system": "ignition",
+    "common_causes": ["Faulty coil A", "Open/short in coil wiring", "Bad coil connector"],
+    "verified_fix": "Replace ignition coil A"
+  },
+  "P0352": {
+    "desc": "Ignition Coil B Primary/Secondary Circuit Malfunction",
+    "severity": "high",
+    "system": "ignition",
+    "common_causes": ["Faulty coil B", "Open/short in coil wiring", "Connector corrosion"],
+    "verified_fix": "Replace ignition coil B"
+  },
+  "P0353": {
+    "desc": "Ignition Coil C Primary/Secondary Circuit Malfunction",
+    "severity": "high",
+    "system": "ignition",
+    "common_causes": ["Faulty coil C", "Open/short in coil wiring", "ECM driver issue"],
+    "verified_fix": "Replace ignition coil C"
+  },
+  "P0354": {
+    "desc": "Ignition Coil D Primary/Secondary Circuit Malfunction",
+    "severity": "high",
+    "system": "ignition",
+    "common_causes": ["Faulty coil D", "Wiring fault", "Connector issue"],
+    "verified_fix": "Replace ignition coil D"
+  },
+  "P0400": {
+    "desc": "Exhaust Gas Recirculation Flow Malfunction",
+    "severity": "moderate",
+    "system": "emissions",
+    "common_causes": ["Clogged EGR valve", "Carbon buildup in passages", "Faulty EGR position sensor"],
+    "verified_fix": "Clean or replace EGR valve; clean EGR passages"
+  },
+  "P0402": {
+    "desc": "EGR Flow Excessive Detected",
+    "severity": "moderate",
+    "system": "emissions",
+    "common_causes": ["EGR valve stuck open", "Faulty EGR solenoid", "Vacuum line leak"],
+    "verified_fix": "Replace EGR valve"
+  },
+  "P0403": {
+    "desc": "EGR Circuit Malfunction",
+    "severity": "moderate",
+    "system": "emissions",
+    "common_causes": ["Faulty EGR solenoid", "Wiring open/short", "ECM driver issue"],
+    "verified_fix": "Replace EGR solenoid; check wiring"
+  },
+  "P0404": {
+    "desc": "EGR System Range/Performance",
+    "severity": "moderate",
+    "system": "emissions",
+    "common_causes": ["Carbon buildup on EGR valve", "EGR position sensor drift", "Sticking EGR pintle"],
+    "verified_fix": "Clean or replace EGR valve"
+  },
+  "P0405": {
+    "desc": "EGR Position Sensor A Circuit Low",
+    "severity": "moderate",
+    "system": "emissions",
+    "common_causes": ["Faulty EGR position sensor", "Short to ground", "Corroded connector"],
+    "verified_fix": "Replace EGR valve with integrated position sensor"
+  },
+  "P0406": {
+    "desc": "EGR Position Sensor A Circuit High",
+    "severity": "moderate",
+    "system": "emissions",
+    "common_causes": ["Faulty EGR position sensor", "Short to voltage", "Wiring issue"],
+    "verified_fix": "Replace EGR valve with integrated position sensor"
+  },
+  "P0410": {
+    "desc": "Secondary Air Injection System Malfunction",
+    "severity": "low",
+    "system": "emissions",
+    "common_causes": ["Failed AIR pump", "Check valve stuck", "Hose disconnected"],
+    "verified_fix": "Replace secondary air injection pump"
+  },
+  "P0411": {
+    "desc": "Secondary Air Injection System Incorrect Flow Detected",
+    "severity": "low",
+    "system": "emissions",
+    "common_causes": ["Check valve failure", "AIR pump weak", "Blocked air passages"],
+    "verified_fix": "Replace AIR check valve; inspect pump"
+  },
+  "P0412": {
+    "desc": "Secondary Air Injection Switching Valve A Circuit Malfunction",
+    "severity": "low",
+    "system": "emissions",
+    "common_causes": ["Faulty AIR solenoid valve", "Wiring open/short", "Relay failure"],
+    "verified_fix": "Replace AIR switching solenoid valve"
+  },
+  "P0421": {
+    "desc": "Warm Up Catalyst Efficiency Below Threshold (Bank 1)",
+    "severity": "moderate",
+    "system": "emissions",
+    "common_causes": ["Deteriorated catalytic converter", "Exhaust leak before cat", "O2 sensor degraded"],
+    "verified_fix": "Replace catalytic converter"
+  },
+  "P0444": {
+    "desc": "EVAP Purge Control Valve Circuit Open",
+    "severity": "low",
+    "system": "emissions",
+    "common_causes": ["Open circuit to purge valve", "Faulty purge valve", "Disconnected connector"],
+    "verified_fix": "Repair wiring; replace purge valve"
+  },
+  "P0445": {
+    "desc": "EVAP Purge Control Valve Circuit Shorted",
+    "severity": "low",
+    "system": "emissions",
+    "common_causes": ["Short in purge valve wiring", "Faulty purge valve", "Wiring chafed"],
+    "verified_fix": "Repair shorted wiring; replace purge valve"
+  },
+  "P0447": {
+    "desc": "EVAP Vent Control Valve Circuit Open",
+    "severity": "low",
+    "system": "emissions",
+    "common_causes": ["Open circuit to vent valve", "Faulty vent solenoid", "Broken connector"],
+    "verified_fix": "Repair wiring; replace vent solenoid"
+  },
+  "P0448": {
+    "desc": "EVAP Vent Control Valve Circuit Shorted",
+    "severity": "low",
+    "system": "emissions",
+    "common_causes": ["Shorted vent valve wiring", "Faulty vent solenoid", "Water intrusion"],
+    "verified_fix": "Replace vent solenoid; repair wiring"
+  },
+  "P0449": {
+    "desc": "EVAP Vent Solenoid Control Circuit Malfunction",
+    "severity": "low",
+    "system": "emissions",
+    "common_causes": ["Faulty EVAP vent solenoid", "Wiring damage", "Connector corrosion"],
+    "verified_fix": "Replace EVAP vent solenoid"
+  },
+  "P0450": {
+    "desc": "EVAP System Pressure Sensor Malfunction",
+    "severity": "low",
+    "system": "emissions",
+    "common_causes": ["Faulty fuel tank pressure sensor", "Wiring issue", "Corroded connector"],
+    "verified_fix": "Replace fuel tank pressure sensor"
+  },
+  "P0451": {
+    "desc": "EVAP System Pressure Sensor Range/Performance",
+    "severity": "low",
+    "system": "emissions",
+    "common_causes": ["Fuel tank pressure sensor drift", "EVAP system leak", "Pinched vent hose"],
+    "verified_fix": "Replace fuel tank pressure sensor"
+  },
+  "P0452": {
+    "desc": "EVAP System Pressure Sensor Low Input",
+    "severity": "low",
+    "system": "emissions",
+    "common_causes": ["Short to ground in sensor circuit", "Faulty sensor", "Wiring damage"],
+    "verified_fix": "Replace fuel tank pressure sensor"
+  },
+  "P0453": {
+    "desc": "EVAP System Pressure Sensor High Input",
+    "severity": "low",
+    "system": "emissions",
+    "common_causes": ["Short to voltage in sensor circuit", "Faulty sensor", "Corroded wiring"],
+    "verified_fix": "Replace fuel tank pressure sensor"
+  },
+  "P0460": {
+    "desc": "Fuel Level Sensor Circuit Malfunction",
+    "severity": "low",
+    "system": "fuel_air",
+    "common_causes": ["Faulty fuel level sending unit", "Wiring damage", "Bad ground"],
+    "verified_fix": "Replace fuel level sending unit"
+  },
+  "P0461": {
+    "desc": "Fuel Level Sensor Range/Performance",
+    "severity": "low",
+    "system": "fuel_air",
+    "common_causes": ["Sticking fuel level float", "Sending unit worn", "Corroded connector"],
+    "verified_fix": "Replace fuel level sending unit"
+  },
+  "P0480": {
+    "desc": "Cooling Fan 1 Control Circuit Malfunction",
+    "severity": "moderate",
+    "system": "cooling",
+    "common_causes": ["Failed fan relay", "Fan motor burned out", "Wiring open/short"],
+    "verified_fix": "Replace cooling fan relay or fan motor"
+  },
+  "P0481": {
+    "desc": "Cooling Fan 2 Control Circuit Malfunction",
+    "severity": "moderate",
+    "system": "cooling",
+    "common_causes": ["Failed fan 2 relay", "Fan 2 motor failure", "Wiring fault"],
+    "verified_fix": "Replace cooling fan 2 relay or motor"
+  },
+  "P0501": {
+    "desc": "Vehicle Speed Sensor Range/Performance",
+    "severity": "moderate",
+    "system": "drivetrain",
+    "common_causes": ["VSS signal erratic", "Damaged tone ring", "Wiring intermittent"],
+    "verified_fix": "Replace vehicle speed sensor"
+  },
+  "P0502": {
+    "desc": "Vehicle Speed Sensor Circuit Low",
+    "severity": "moderate",
+    "system": "drivetrain",
+    "common_causes": ["Open circuit in VSS wiring", "Faulty VSS", "Damaged connector"],
+    "verified_fix": "Repair wiring; replace VSS"
+  },
+  "P0503": {
+    "desc": "Vehicle Speed Sensor Intermittent/Erratic/High",
+    "severity": "moderate",
+    "system": "drivetrain",
+    "common_causes": ["Loose VSS connection", "Electromagnetic interference", "Faulty VSS"],
+    "verified_fix": "Replace VSS; check wiring routing"
+  },
+  "P0506": {
+    "desc": "Idle Control System RPM Lower Than Expected",
+    "severity": "low",
+    "system": "fuel_air",
+    "common_causes": ["Dirty throttle body", "Vacuum leak", "IAC valve failure"],
+    "verified_fix": "Clean throttle body; replace IAC valve"
+  },
+  "P0508": {
+    "desc": "Idle Air Control System Circuit Low",
+    "severity": "moderate",
+    "system": "fuel_air",
+    "common_causes": ["Short to ground in IAC circuit", "Faulty IAC motor", "Wiring damage"],
+    "verified_fix": "Replace IAC valve; repair wiring"
+  },
+  "P0509": {
+    "desc": "Idle Air Control System Circuit High",
+    "severity": "moderate",
+    "system": "fuel_air",
+    "common_causes": ["Short to voltage in IAC circuit", "Faulty IAC motor", "Connector issue"],
+    "verified_fix": "Replace IAC valve"
+  },
+  "P0510": {
+    "desc": "Closed Throttle Position Switch Malfunction",
+    "severity": "moderate",
+    "system": "fuel_air",
+    "common_causes": ["Faulty closed-throttle switch", "TPS out of adjustment", "Wiring fault"],
+    "verified_fix": "Adjust or replace throttle position switch"
+  },
+  "P0520": {
+    "desc": "Engine Oil Pressure Sensor/Switch Circuit Malfunction",
+    "severity": "high",
+    "system": "fuel_air",
+    "common_causes": ["Faulty oil pressure sensor", "Low oil level", "Wiring damage"],
+    "verified_fix": "Check oil level; replace oil pressure sensor"
+  },
+  "P0521": {
+    "desc": "Engine Oil Pressure Sensor Range/Performance",
+    "severity": "high",
+    "system": "fuel_air",
+    "common_causes": ["Faulty oil pressure sensor", "Oil viscosity issue", "Oil pump wear"],
+    "verified_fix": "Replace oil pressure sensor; verify actual oil pressure with gauge"
+  },
+  "P0522": {
+    "desc": "Engine Oil Pressure Sensor Circuit Low",
+    "severity": "high",
+    "system": "fuel_air",
+    "common_causes": ["Low oil pressure", "Faulty sensor", "Short to ground"],
+    "verified_fix": "Check oil level and condition; replace oil pressure sensor"
+  },
+  "P0523": {
+    "desc": "Engine Oil Pressure Sensor Circuit High",
+    "severity": "high",
+    "system": "fuel_air",
+    "common_causes": ["Faulty oil pressure sensor", "Open circuit", "Connector issue"],
+    "verified_fix": "Replace oil pressure sensor"
+  },
+  "P0530": {
+    "desc": "A/C Refrigerant Pressure Sensor Circuit Malfunction",
+    "severity": "low",
+    "system": "body",
+    "common_causes": ["Faulty A/C pressure sensor", "Low refrigerant", "Wiring issue"],
+    "verified_fix": "Check refrigerant level; replace A/C pressure sensor"
+  },
+  "P0531": {
+    "desc": "A/C Refrigerant Pressure Sensor Range/Performance",
+    "severity": "low",
+    "system": "body",
+    "common_causes": ["A/C pressure sensor drift", "System overcharged", "Condenser blockage"],
+    "verified_fix": "Verify A/C charge; replace pressure sensor"
+  },
+  "P0550": {
+    "desc": "Power Steering Pressure Sensor Circuit Malfunction",
+    "severity": "moderate",
+    "system": "drivetrain",
+    "common_causes": ["Faulty PS pressure sensor", "Wiring fault", "Low power steering fluid"],
+    "verified_fix": "Replace power steering pressure sensor"
+  },
+  "P0560": {
+    "desc": "System Voltage Malfunction",
+    "severity": "moderate",
+    "system": "fuel_air",
+    "common_causes": ["Failing alternator", "Weak battery", "Poor battery connections"],
+    "verified_fix": "Test alternator output; replace alternator or battery"
+  },
+  "P0562": {
+    "desc": "System Voltage Low",
+    "severity": "moderate",
+    "system": "fuel_air",
+    "common_causes": ["Failing alternator", "Parasitic drain", "Corroded battery terminals"],
+    "verified_fix": "Test and replace alternator; clean battery terminals"
+  },
+  "P0563": {
+    "desc": "System Voltage High",
+    "severity": "moderate",
+    "system": "fuel_air",
+    "common_causes": ["Faulty voltage regulator", "Alternator overcharging", "Bad ground"],
+    "verified_fix": "Replace alternator/voltage regulator"
+  },
+  "P0571": {
+    "desc": "Cruise Control/Brake Switch A Circuit Malfunction",
+    "severity": "low",
+    "system": "drivetrain",
+    "common_causes": ["Faulty brake light switch", "Misadjusted switch", "Wiring issue"],
+    "verified_fix": "Adjust or replace brake light switch"
+  },
+  "P0600": {
+    "desc": "Serial Communication Link Malfunction",
+    "severity": "high",
+    "system": "network",
+    "common_causes": ["ECM internal fault", "CAN bus wiring damage", "Module communication failure"],
+    "verified_fix": "Inspect CAN bus wiring; reflash or replace ECM"
+  },
+  "P0601": {
+    "desc": "Internal Control Module Memory Check Sum Error",
+    "severity": "high",
+    "system": "network",
+    "common_causes": ["ECM internal failure", "Software corruption", "Voltage spike damage"],
+    "verified_fix": "Reflash ECM; replace if reflash fails"
+  },
+  "P0602": {
+    "desc": "Control Module Programming Error",
+    "severity": "high",
+    "system": "network",
+    "common_causes": ["Failed ECM reflash", "Incompatible software", "Interrupted programming"],
+    "verified_fix": "Reprogram ECM with correct calibration"
+  },
+  "P0603": {
+    "desc": "Internal Control Module KAM Error",
+    "severity": "moderate",
+    "system": "network",
+    "common_causes": ["Battery disconnected", "Keep-alive memory lost", "ECM fault"],
+    "verified_fix": "Clear code and monitor; replace ECM if code returns"
+  },
+  "P0604": {
+    "desc": "Internal Control Module RAM Error",
+    "severity": "high",
+    "system": "network",
+    "common_causes": ["ECM internal RAM failure", "Voltage spike", "Component aging"],
+    "verified_fix": "Replace ECM"
+  },
+  "P0606": {
+    "desc": "ECM/PCM Processor Fault",
+    "severity": "high",
+    "system": "network",
+    "common_causes": ["Internal ECM processor failure", "Power supply issue to ECM", "Software fault"],
+    "verified_fix": "Reflash ECM; replace if fault persists"
+  },
+  "P0620": {
+    "desc": "Generator Control Circuit Malfunction",
+    "severity": "moderate",
+    "system": "fuel_air",
+    "common_causes": ["Alternator field circuit fault", "Wiring damage", "ECM driver issue"],
+    "verified_fix": "Test alternator; repair field circuit wiring"
+  },
+  "P0627": {
+    "desc": "Fuel Pump A Control Circuit Open",
+    "severity": "high",
+    "system": "fuel_air",
+    "common_causes": ["Open circuit to fuel pump relay", "Failed relay", "Wiring damage"],
+    "verified_fix": "Replace fuel pump relay; repair wiring"
+  },
+  "P0628": {
+    "desc": "Fuel Pump A Control Circuit Low",
+    "severity": "high",
+    "system": "fuel_air",
+    "common_causes": ["Short to ground in pump circuit", "Failed relay", "Wiring fault"],
+    "verified_fix": "Replace fuel pump relay; repair shorted wiring"
+  },
+  "P0630": {
+    "desc": "VIN Not Programmed or Incompatible - ECM/PCM",
+    "severity": "high",
+    "system": "network",
+    "common_causes": ["ECM replaced without VIN programming", "Aftermarket ECM", "Reflash error"],
+    "verified_fix": "Program VIN into ECM using dealer-level scan tool"
+  },
+  "P0650": {
+    "desc": "Malfunction Indicator Lamp Control Circuit Malfunction",
+    "severity": "low",
+    "system": "network",
+    "common_causes": ["Burned out MIL bulb", "Wiring open", "Instrument cluster fault"],
+    "verified_fix": "Replace MIL bulb; check wiring to cluster"
+  },
+  "P0660": {
+    "desc": "Intake Manifold Tuning Valve Control Circuit (Bank 1)",
+    "severity": "moderate",
+    "system": "fuel_air",
+    "common_causes": ["Faulty IMRC solenoid", "Stuck runner flaps", "Wiring open/short"],
+    "verified_fix": "Replace IMRC solenoid; clean intake manifold runners"
+  },
+  "P0685": {
+    "desc": "ECM/PCM Power Relay Control Circuit Open",
+    "severity": "high",
+    "system": "network",
+    "common_causes": ["Failed ECM power relay", "Wiring open", "Ignition switch issue"],
+    "verified_fix": "Replace ECM power relay"
+  },
+  "P0701": {
+    "desc": "Transmission Control System Range/Performance",
+    "severity": "high",
+    "system": "transmission",
+    "common_causes": ["TCM internal fault", "Wiring issue", "Transmission ground problem"],
+    "verified_fix": "Inspect TCM connectors and grounds; replace TCM if needed"
+  },
+  "P0705": {
+    "desc": "Transmission Range Sensor Circuit Malfunction (PRNDL Input)",
+    "severity": "high",
+    "system": "transmission",
+    "common_causes": ["Faulty neutral safety switch", "Misadjusted range sensor", "Wiring issue"],
+    "verified_fix": "Adjust or replace transmission range sensor"
+  },
+  "P0706": {
+    "desc": "Transmission Range Sensor Range/Performance",
+    "severity": "moderate",
+    "system": "transmission",
+    "common_causes": ["Range sensor out of adjustment", "Internal sensor fault", "Linkage worn"],
+    "verified_fix": "Adjust or replace transmission range sensor"
+  },
+  "P0710": {
+    "desc": "Transmission Fluid Temperature Sensor Circuit Malfunction",
+    "severity": "moderate",
+    "system": "transmission",
+    "common_causes": ["Faulty TFT sensor", "Wiring open/short", "Connector corrosion"],
+    "verified_fix": "Replace transmission fluid temperature sensor"
+  },
+  "P0711": {
+    "desc": "Transmission Fluid Temperature Sensor Range/Performance",
+    "severity": "moderate",
+    "system": "transmission",
+    "common_causes": ["TFT sensor drift", "Low/contaminated trans fluid", "Sensor location issue"],
+    "verified_fix": "Replace TFT sensor; service transmission fluid"
+  },
+  "P0716": {
+    "desc": "Input/Turbine Speed Sensor Range/Performance",
+    "severity": "high",
+    "system": "transmission",
+    "common_causes": ["Erratic speed sensor signal", "Damaged tone ring", "Low trans fluid"],
+    "verified_fix": "Replace input speed sensor; check trans fluid level"
+  },
+  "P0717": {
+    "desc": "Input/Turbine Speed Sensor Circuit No Signal",
+    "severity": "high",
+    "system": "transmission",
+    "common_causes": ["Failed input speed sensor", "Open circuit", "Damaged connector"],
+    "verified_fix": "Replace input speed sensor"
+  },
+  "P0721": {
+    "desc": "Output Speed Sensor Range/Performance",
+    "severity": "high",
+    "system": "transmission",
+    "common_causes": ["Erratic OSS signal", "Damaged tone ring", "Debris on sensor"],
+    "verified_fix": "Replace output speed sensor; inspect tone ring"
+  },
+  "P0722": {
+    "desc": "Output Speed Sensor No Signal",
+    "severity": "high",
+    "system": "transmission",
+    "common_causes": ["Failed output speed sensor", "Open circuit", "Wiring damage"],
+    "verified_fix": "Replace output speed sensor"
+  },
+  "P0731": {
+    "desc": "Gear 1 Incorrect Ratio",
+    "severity": "high",
+    "system": "transmission",
+    "common_causes": ["Low trans fluid", "Worn 1st gear clutch pack", "Solenoid issue"],
+    "verified_fix": "Service transmission fluid; rebuild if clutch pack worn"
+  },
+  "P0732": {
+    "desc": "Gear 2 Incorrect Ratio",
+    "severity": "high",
+    "system": "transmission",
+    "common_causes": ["Low trans fluid", "Worn 2nd gear clutch pack", "2-3 shift solenoid"],
+    "verified_fix": "Service transmission fluid; internal repair if needed"
+  },
+  "P0733": {
+    "desc": "Gear 3 Incorrect Ratio",
+    "severity": "high",
+    "system": "transmission",
+    "common_causes": ["Low trans fluid", "Worn 3rd gear clutch pack", "Shift solenoid failure"],
+    "verified_fix": "Service transmission fluid; rebuild or replace transmission"
+  },
+  "P0734": {
+    "desc": "Gear 4 Incorrect Ratio",
+    "severity": "high",
+    "system": "transmission",
+    "common_causes": ["Worn 4th gear components", "Low trans fluid", "Valve body issue"],
+    "verified_fix": "Inspect valve body; rebuild transmission if needed"
+  },
+  "P0735": {
+    "desc": "Gear 5 Incorrect Ratio",
+    "severity": "high",
+    "system": "transmission",
+    "common_causes": ["Worn 5th gear components", "Low trans fluid", "Overdrive solenoid"],
+    "verified_fix": "Service transmission; rebuild if internal wear present"
+  },
+  "P0740": {
+    "desc": "Torque Converter Clutch Circuit Malfunction",
+    "severity": "high",
+    "system": "transmission",
+    "common_causes": ["Faulty TCC solenoid", "Wiring open/short", "Valve body issue"],
+    "verified_fix": "Replace TCC solenoid; inspect valve body"
+  },
+  "P0741": {
+    "desc": "Torque Converter Clutch Circuit Performance/Stuck Off",
+    "severity": "high",
+    "system": "transmission",
+    "common_causes": ["Failed TCC solenoid", "Worn TCC friction material", "Valve body sticking"],
+    "verified_fix": "Replace TCC solenoid; rebuild torque converter if worn"
+  },
+  "P0742": {
+    "desc": "Torque Converter Clutch Circuit Stuck On",
+    "severity": "high",
+    "system": "transmission",
+    "common_causes": ["TCC solenoid stuck on", "Valve body stuck", "Wiring short"],
+    "verified_fix": "Replace TCC solenoid; inspect valve body"
+  },
+  "P0743": {
+    "desc": "Torque Converter Clutch Circuit Electrical",
+    "severity": "high",
+    "system": "transmission",
+    "common_causes": ["TCC solenoid wiring fault", "Corroded connector", "TCM driver issue"],
+    "verified_fix": "Repair TCC solenoid wiring; replace solenoid"
+  },
+  "P0751": {
+    "desc": "Shift Solenoid A Performance/Stuck Off",
+    "severity": "high",
+    "system": "transmission",
+    "common_causes": ["Shift solenoid A stuck", "Dirty trans fluid", "Valve body issue"],
+    "verified_fix": "Replace shift solenoid A; service transmission fluid"
+  },
+  "P0752": {
+    "desc": "Shift Solenoid A Stuck On",
+    "severity": "high",
+    "system": "transmission",
+    "common_causes": ["Solenoid A stuck open", "Valve body bore worn", "Wiring short"],
+    "verified_fix": "Replace shift solenoid A; inspect valve body"
+  },
+  "P0753": {
+    "desc": "Shift Solenoid A Electrical",
+    "severity": "high",
+    "system": "transmission",
+    "common_causes": ["Solenoid A wiring fault", "Open/short circuit", "TCM driver fault"],
+    "verified_fix": "Repair solenoid wiring; replace solenoid"
+  },
+  "P0755": {
+    "desc": "Shift Solenoid B Malfunction",
+    "severity": "high",
+    "system": "transmission",
+    "common_causes": ["Faulty shift solenoid B", "Dirty trans fluid", "Wiring issue"],
+    "verified_fix": "Replace shift solenoid B; service transmission fluid"
+  },
+  "P0756": {
+    "desc": "Shift Solenoid B Performance/Stuck Off",
+    "severity": "high",
+    "system": "transmission",
+    "common_causes": ["Shift solenoid B stuck", "Contaminated fluid", "Valve body issue"],
+    "verified_fix": "Replace shift solenoid B; flush transmission"
+  },
+  "P0757": {
+    "desc": "Shift Solenoid B Stuck On",
+    "severity": "high",
+    "system": "transmission",
+    "common_causes": ["Solenoid B stuck open", "Valve body bore worn", "Debris in valve body"],
+    "verified_fix": "Replace shift solenoid B; clean valve body"
+  },
+  "P0758": {
+    "desc": "Shift Solenoid B Electrical",
+    "severity": "high",
+    "system": "transmission",
+    "common_causes": ["Solenoid B wiring fault", "Open/short circuit", "Corroded connector"],
+    "verified_fix": "Repair wiring; replace shift solenoid B"
+  },
+  "P0760": {
+    "desc": "Shift Solenoid C Malfunction",
+    "severity": "high",
+    "system": "transmission",
+    "common_causes": ["Faulty shift solenoid C", "Dirty trans fluid", "Wiring fault"],
+    "verified_fix": "Replace shift solenoid C"
+  },
+  "P0765": {
+    "desc": "Shift Solenoid D Malfunction",
+    "severity": "high",
+    "system": "transmission",
+    "common_causes": ["Faulty shift solenoid D", "Contaminated fluid", "Wiring issue"],
+    "verified_fix": "Replace shift solenoid D"
+  },
+  "P0770": {
+    "desc": "Shift Solenoid E Malfunction",
+    "severity": "high",
+    "system": "transmission",
+    "common_causes": ["Faulty shift solenoid E", "Internal trans wear", "Wiring fault"],
+    "verified_fix": "Replace shift solenoid E; service transmission"
+  },
+  "P0775": {
+    "desc": "Pressure Control Solenoid B Malfunction",
+    "severity": "high",
+    "system": "transmission",
+    "common_causes": ["Faulty pressure control solenoid B", "Dirty fluid", "Wiring issue"],
+    "verified_fix": "Replace pressure control solenoid B"
+  },
+  "P0780": {
+    "desc": "Shift Malfunction",
+    "severity": "high",
+    "system": "transmission",
+    "common_causes": ["General shift quality issue", "Low trans fluid", "Multiple solenoid faults"],
+    "verified_fix": "Service transmission fluid; diagnose specific shift concern"
+  },
+  "P0781": {
+    "desc": "1-2 Shift Malfunction",
+    "severity": "high",
+    "system": "transmission",
+    "common_causes": ["1-2 shift solenoid issue", "Worn clutch pack", "Valve body fault"],
+    "verified_fix": "Replace 1-2 shift solenoid; inspect valve body"
+  },
+  "P0782": {
+    "desc": "2-3 Shift Malfunction",
+    "severity": "high",
+    "system": "transmission",
+    "common_causes": ["2-3 shift solenoid issue", "Worn band or clutch", "Valve body fault"],
+    "verified_fix": "Replace 2-3 shift solenoid; rebuild if internal wear"
+  },
+  "P0783": {
+    "desc": "3-4 Shift Malfunction",
+    "severity": "high",
+    "system": "transmission",
+    "common_causes": ["3-4 shift solenoid issue", "Worn clutch pack", "Low line pressure"],
+    "verified_fix": "Replace shift solenoid; rebuild transmission if needed"
+  },
+  "P0840": {
+    "desc": "Transmission Fluid Pressure Sensor/Switch A Circuit Malfunction",
+    "severity": "high",
+    "system": "transmission",
+    "common_causes": ["Faulty trans pressure sensor", "Wiring issue", "Low trans fluid"],
+    "verified_fix": "Replace transmission fluid pressure sensor"
+  },
+  "P0868": {
+    "desc": "Transmission Fluid Pressure Low",
+    "severity": "high",
+    "system": "transmission",
+    "common_causes": ["Low trans fluid level", "Worn transmission pump", "Internal seal leak"],
+    "verified_fix": "Check and fill trans fluid; rebuild transmission if pump worn"
+  },
+  "P0871": {
+    "desc": "Overdrive Brake Clutch Pressure Malfunction",
+    "severity": "high",
+    "system": "transmission",
+    "common_causes": ["Worn overdrive clutch pack", "Low line pressure", "Valve body fault"],
+    "verified_fix": "Rebuild transmission overdrive section"
+  },
+  "P0894": {
+    "desc": "Transmission Component Slipping",
+    "severity": "high",
+    "system": "transmission",
+    "common_causes": ["Worn clutch packs", "Low trans fluid", "Contaminated fluid", "Valve body issue"],
+    "verified_fix": "Service fluid; rebuild transmission if slipping persists"
+  },
+  "P0900": {
+    "desc": "Clutch Actuator Circuit Open",
+    "severity": "high",
+    "system": "transmission",
+    "common_causes": ["Open circuit to clutch actuator", "Faulty actuator motor", "Wiring damage"],
+    "verified_fix": "Repair wiring; replace clutch actuator"
+  },
+  "P0920": {
+    "desc": "Gear Shift Forward Actuator Circuit Open",
+    "severity": "high",
+    "system": "transmission",
+    "common_causes": ["Failed gear actuator", "Wiring open", "TCM fault"],
+    "verified_fix": "Replace gear shift actuator; repair wiring"
+  },
+  "P0960": {
+    "desc": "Pressure Control Solenoid A Control Circuit Open",
+    "severity": "high",
+    "system": "transmission",
+    "common_causes": ["Open circuit to PCS A", "Faulty solenoid", "TCM driver fault"],
+    "verified_fix": "Replace pressure control solenoid A; repair wiring"
+  },
+  "P2000": {
+    "desc": "NOx Trap Efficiency Below Threshold (Bank 1)",
+    "severity": "moderate",
+    "system": "emissions",
+    "common_causes": ["Failed NOx trap catalyst", "Lean burn calibration issue", "Exhaust leak"],
+    "verified_fix": "Replace NOx trap catalyst"
+  },
+  "P2002": {
+    "desc": "Diesel Particulate Filter Efficiency Below Threshold (Bank 1)",
+    "severity": "moderate",
+    "system": "emissions",
+    "common_causes": ["Clogged DPF", "Failed DPF regeneration", "Soot overload"],
+    "verified_fix": "Force DPF regeneration; replace DPF if damaged"
+  },
+  "P2004": {
+    "desc": "Intake Manifold Runner Control Stuck Open (Bank 1)",
+    "severity": "moderate",
+    "system": "fuel_air",
+    "common_causes": ["Broken runner flap", "Faulty IMRC actuator", "Carbon buildup on flaps"],
+    "verified_fix": "Replace IMRC actuator; clean runner flaps"
+  },
+  "P2006": {
+    "desc": "Intake Manifold Runner Control Stuck Closed (Bank 1)",
+    "severity": "moderate",
+    "system": "fuel_air",
+    "common_causes": ["Stuck runner flaps", "Faulty IMRC actuator", "Carbon binding flaps"],
+    "verified_fix": "Clean intake manifold runners; replace IMRC actuator"
+  },
+  "P2008": {
+    "desc": "Intake Manifold Runner Control Circuit Open (Bank 1)",
+    "severity": "moderate",
+    "system": "fuel_air",
+    "common_causes": ["IMRC solenoid wiring open", "Faulty solenoid", "Connector fault"],
+    "verified_fix": "Repair wiring; replace IMRC solenoid"
+  },
+  "P2015": {
+    "desc": "Intake Manifold Runner Position Sensor Range/Performance (Bank 1)",
+    "severity": "moderate",
+    "system": "fuel_air",
+    "common_causes": ["Faulty IMRC position sensor", "Broken runner linkage", "Binding flaps"],
+    "verified_fix": "Replace intake manifold with integrated IMRC"
+  },
+  "P2017": {
+    "desc": "Intake Manifold Runner Position Sensor Circuit High (Bank 1)",
+    "severity": "moderate",
+    "system": "fuel_air",
+    "common_causes": ["Short to voltage in IMRC sensor circuit", "Faulty sensor", "Wiring fault"],
+    "verified_fix": "Replace IMRC sensor or intake manifold assembly"
+  },
+  "P2096": {
+    "desc": "Post Catalyst Fuel Trim System Too Lean (Bank 1)",
+    "severity": "moderate",
+    "system": "emissions",
+    "common_causes": ["Exhaust leak near downstream O2", "Failing catalytic converter", "O2 sensor fault"],
+    "verified_fix": "Check for exhaust leaks; replace catalytic converter"
+  },
+  "P2097": {
+    "desc": "Post Catalyst Fuel Trim System Too Rich (Bank 1)",
+    "severity": "moderate",
+    "system": "emissions",
+    "common_causes": ["Failing catalytic converter", "Downstream O2 sensor contaminated", "Rich running engine"],
+    "verified_fix": "Replace catalytic converter; check upstream fuel trim"
+  },
+  "P2098": {
+    "desc": "Post Catalyst Fuel Trim System Too Lean (Bank 2)",
+    "severity": "moderate",
+    "system": "emissions",
+    "common_causes": ["Exhaust leak", "Bank 2 catalytic converter failing", "O2 sensor issue"],
+    "verified_fix": "Repair exhaust leak; replace Bank 2 catalytic converter"
+  },
+  "P2099": {
+    "desc": "Post Catalyst Fuel Trim System Too Rich (Bank 2)",
+    "severity": "moderate",
+    "system": "emissions",
+    "common_causes": ["Bank 2 catalytic converter failing", "Downstream O2 sensor fault", "Rich condition"],
+    "verified_fix": "Replace Bank 2 catalytic converter"
+  },
+  "P2100": {
+    "desc": "Throttle Actuator Control Motor Circuit Open",
+    "severity": "high",
+    "system": "fuel_air",
+    "common_causes": ["Electronic throttle body motor failure", "Wiring open circuit", "Connector fault"],
+    "verified_fix": "Replace electronic throttle body"
+  },
+  "P2101": {
+    "desc": "Throttle Actuator Control Motor Range/Performance",
+    "severity": "high",
+    "system": "fuel_air",
+    "common_causes": ["Carbon buildup in throttle body", "Failing throttle motor", "Binding throttle plate"],
+    "verified_fix": "Clean throttle body; replace if motor is failing"
+  },
+  "P2104": {
+    "desc": "Throttle Actuator Control System Forced Idle",
+    "severity": "high",
+    "system": "fuel_air",
+    "common_causes": ["Dual TPS disagreement", "Throttle body fault", "APP sensor fault"],
+    "verified_fix": "Replace electronic throttle body; check APP sensor"
+  },
+  "P2106": {
+    "desc": "Throttle Actuator Control System Forced Limited Power",
+    "severity": "high",
+    "system": "fuel_air",
+    "common_causes": ["Electronic throttle system fault", "TPS/APP disagreement", "Wiring issue"],
+    "verified_fix": "Diagnose root cause; replace throttle body or APP sensor"
+  },
+  "P2110": {
+    "desc": "Throttle Actuator Control System Forced Limited RPM",
+    "severity": "high",
+    "system": "fuel_air",
+    "common_causes": ["Electronic throttle fault", "APP sensor issue", "ECM limiting engine"],
+    "verified_fix": "Clear codes; replace throttle body or APP sensor if fault returns"
+  },
+  "P2111": {
+    "desc": "Throttle Actuator Control System Stuck Open",
+    "severity": "high",
+    "system": "fuel_air",
+    "common_causes": ["Binding throttle plate", "Faulty throttle motor", "Carbon buildup"],
+    "verified_fix": "Clean or replace electronic throttle body"
+  },
+  "P2112": {
+    "desc": "Throttle Actuator Control System Stuck Closed",
+    "severity": "high",
+    "system": "fuel_air",
+    "common_causes": ["Throttle plate stuck closed", "Motor failure", "Spring return issue"],
+    "verified_fix": "Replace electronic throttle body"
+  },
+  "P2118": {
+    "desc": "Throttle Actuator Control Motor Current Range/Performance",
+    "severity": "high",
+    "system": "fuel_air",
+    "common_causes": ["Throttle motor drawing excessive current", "Internal short in motor", "Binding"],
+    "verified_fix": "Replace electronic throttle body"
+  },
+  "P2122": {
+    "desc": "Throttle/Pedal Position Sensor D Circuit Low",
+    "severity": "high",
+    "system": "fuel_air",
+    "common_causes": ["Faulty APP sensor", "Short to ground in signal wire", "Damaged wiring"],
+    "verified_fix": "Replace accelerator pedal position sensor assembly"
+  },
+  "P2127": {
+    "desc": "Throttle/Pedal Position Sensor E Circuit Low",
+    "severity": "high",
+    "system": "fuel_air",
+    "common_causes": ["Faulty APP sensor E", "Short to ground", "Connector issue"],
+    "verified_fix": "Replace accelerator pedal position sensor assembly"
+  },
+  "P2135": {
+    "desc": "Throttle/Pedal Position Sensor Voltage Correlation",
+    "severity": "high",
+    "system": "fuel_air",
+    "common_causes": ["Faulty TPS (dual-track)", "Electronic throttle body failure", "Wiring fault"],
+    "verified_fix": "Replace electronic throttle body"
+  },
+  "P2138": {
+    "desc": "Throttle/Pedal Position Sensor D/E Voltage Correlation",
+    "severity": "high",
+    "system": "fuel_air",
+    "common_causes": ["Faulty APP sensor assembly", "Wiring fault between sensors", "Connector corrosion"],
+    "verified_fix": "Replace accelerator pedal position sensor assembly"
+  },
+  "P2146": {
+    "desc": "Fuel Injector Group A Supply Voltage Circuit Open",
+    "severity": "high",
+    "system": "fuel_air",
+    "common_causes": ["Open circuit in injector power supply", "Blown fuse", "Relay failure"],
+    "verified_fix": "Replace injector fuse/relay; repair power supply wiring"
+  },
+  "P2149": {
+    "desc": "Fuel Injector Group B Supply Voltage Circuit Open",
+    "severity": "high",
+    "system": "fuel_air",
+    "common_causes": ["Open circuit in Group B injector supply", "Blown fuse", "Relay failure"],
+    "verified_fix": "Replace injector fuse/relay; repair power supply wiring"
+  },
+  "P2177": {
+    "desc": "System Too Lean Off Idle (Bank 1)",
+    "severity": "moderate",
+    "system": "fuel_air",
+    "common_causes": ["Small vacuum leak", "Weak fuel pump at load", "Partially clogged injector"],
+    "verified_fix": "Smoke test for vacuum leaks; test fuel pressure under load"
+  },
+  "P2178": {
+    "desc": "System Too Rich Off Idle (Bank 1)",
+    "severity": "moderate",
+    "system": "fuel_air",
+    "common_causes": ["Leaking fuel injector", "High fuel pressure", "Faulty fuel pressure regulator"],
+    "verified_fix": "Check fuel pressure; replace leaking injector or regulator"
+  },
+  "P2187": {
+    "desc": "System Too Lean at Idle (Bank 1)",
+    "severity": "moderate",
+    "system": "fuel_air",
+    "common_causes": ["Vacuum leak at idle", "PCV valve leak", "Intake gasket leak"],
+    "verified_fix": "Smoke test for vacuum leaks; replace PCV valve or intake gaskets"
+  },
+  "P2188": {
+    "desc": "System Too Rich at Idle (Bank 1)",
+    "severity": "moderate",
+    "system": "fuel_air",
+    "common_causes": ["Leaking injector at idle", "Charcoal canister purge issue", "Fuel pressure high"],
+    "verified_fix": "Check for leaking injectors; test purge system"
+  },
+  "P2195": {
+    "desc": "O2 Sensor Signal Stuck Lean (Bank 1 Sensor 1)",
+    "severity": "moderate",
+    "system": "fuel_air",
+    "common_causes": ["Persistent lean condition", "Faulty O2 sensor", "Major vacuum leak"],
+    "verified_fix": "Check for vacuum leaks; replace O2 sensor if signal stuck"
+  },
+  "P2196": {
+    "desc": "O2 Sensor Signal Stuck Rich (Bank 1 Sensor 1)",
+    "severity": "moderate",
+    "system": "fuel_air",
+    "common_causes": ["Persistent rich condition", "Faulty O2 sensor", "Leaking injector"],
+    "verified_fix": "Diagnose rich condition; replace O2 sensor"
+  },
+  "B0001": {
+    "desc": "Driver Frontal Stage 1 Deployment Control",
+    "severity": "high",
+    "system": "body",
+    "common_causes": ["Airbag module fault", "Clockspring failure", "Wiring to driver airbag"],
+    "verified_fix": "Replace clockspring; inspect airbag module wiring"
+  },
+  "B0002": {
+    "desc": "Driver Frontal Stage 2 Deployment Control",
+    "severity": "high",
+    "system": "body",
+    "common_causes": ["Airbag module internal fault", "Wiring issue", "Connector corrosion"],
+    "verified_fix": "Replace airbag control module"
+  },
+  "B0010": {
+    "desc": "Passenger Frontal Stage 1 Deployment Control",
+    "severity": "high",
+    "system": "body",
+    "common_causes": ["Passenger airbag fault", "Wiring to passenger module", "Connector issue"],
+    "verified_fix": "Inspect wiring to passenger airbag; replace airbag module"
+  },
+  "B0020": {
+    "desc": "Driver Side Airbag Deployment Control",
+    "severity": "high",
+    "system": "body",
+    "common_causes": ["Side airbag module fault", "Wiring in door harness", "Connector damage"],
+    "verified_fix": "Replace side airbag module; repair door harness"
+  },
+  "B0050": {
+    "desc": "Seat Belt Pretensioner Deployment Control (Driver)",
+    "severity": "high",
+    "system": "body",
+    "common_causes": ["Pretensioner circuit fault", "Wiring under seat", "Connector corrosion"],
+    "verified_fix": "Inspect wiring under driver seat; replace pretensioner"
+  },
+  "B0051": {
+    "desc": "Seat Belt Pretensioner Deployment Control (Passenger)",
+    "severity": "high",
+    "system": "body",
+    "common_causes": ["Pretensioner circuit fault", "Wiring under seat", "Connector corrosion"],
+    "verified_fix": "Inspect wiring under passenger seat; replace pretensioner"
+  },
+  "B0081": {
+    "desc": "Passenger Presence System Malfunction",
+    "severity": "moderate",
+    "system": "body",
+    "common_causes": ["Faulty occupant classification sensor", "Seat mat damage", "Wiring issue"],
+    "verified_fix": "Replace passenger seat occupant sensor mat"
+  },
+  "B0100": {
+    "desc": "Headlamp Output Circuit Malfunction",
+    "severity": "moderate",
+    "system": "body",
+    "common_causes": ["Burned out headlamp bulb", "Wiring fault", "BCM driver issue"],
+    "verified_fix": "Replace headlamp bulb; check wiring"
+  },
+  "B0110": {
+    "desc": "Tail Lamp Circuit Malfunction",
+    "severity": "moderate",
+    "system": "body",
+    "common_causes": ["Burned out tail lamp bulb", "Wiring corroded", "Socket corroded"],
+    "verified_fix": "Replace tail lamp bulb; clean or replace socket"
+  },
+  "B0132": {
+    "desc": "Turn Signal/Hazard Switch Circuit Malfunction",
+    "severity": "moderate",
+    "system": "body",
+    "common_causes": ["Faulty turn signal switch", "Multifunction switch failure", "Wiring fault"],
+    "verified_fix": "Replace multifunction switch"
+  },
+  "B0200": {
+    "desc": "HVAC Blower Motor Circuit Malfunction",
+    "severity": "low",
+    "system": "body",
+    "common_causes": ["Failed blower motor", "Bad blower resistor", "Wiring issue"],
+    "verified_fix": "Replace blower motor resistor; replace motor if failed"
+  },
+  "B0210": {
+    "desc": "HVAC Blend Door Actuator Circuit Malfunction",
+    "severity": "low",
+    "system": "body",
+    "common_causes": ["Failed blend door actuator", "Stripped actuator gear", "Wiring fault"],
+    "verified_fix": "Replace blend door actuator"
+  },
+  "B0215": {
+    "desc": "HVAC A/C Compressor Clutch Relay Malfunction",
+    "severity": "low",
+    "system": "body",
+    "common_causes": ["Failed A/C clutch relay", "Compressor clutch coil open", "Wiring fault"],
+    "verified_fix": "Replace A/C compressor clutch relay"
+  },
+  "B0230": {
+    "desc": "HVAC Mode Door Actuator Circuit Malfunction",
+    "severity": "low",
+    "system": "body",
+    "common_causes": ["Failed mode door actuator", "Stripped gears", "Wiring issue"],
+    "verified_fix": "Replace mode door actuator"
+  },
+  "B1000": {
+    "desc": "ECU Malfunction (Body Control Module)",
+    "severity": "high",
+    "system": "body",
+    "common_causes": ["BCM internal failure", "Power supply issue", "Software corruption"],
+    "verified_fix": "Reflash BCM; replace if internal failure confirmed"
+  },
+  "B1015": {
+    "desc": "Battery Voltage Out of Range (Body System)",
+    "severity": "moderate",
+    "system": "body",
+    "common_causes": ["Weak battery", "Alternator undercharging", "Parasitic drain"],
+    "verified_fix": "Test battery and alternator; replace as needed"
+  },
+  "B1200": {
+    "desc": "Climate Control Push Button Circuit Malfunction",
+    "severity": "low",
+    "system": "body",
+    "common_causes": ["Faulty climate control panel", "Button stuck", "Connector issue"],
+    "verified_fix": "Replace climate control panel"
+  },
+  "B1325": {
+    "desc": "Body Control Module Power Supply Low Voltage",
+    "severity": "moderate",
+    "system": "body",
+    "common_causes": ["Low battery voltage", "Corroded ground connection", "Wiring resistance"],
+    "verified_fix": "Clean battery terminals and ground points; replace battery"
+  },
+  "B1380": {
+    "desc": "Ignition Switch Run/Start Circuit Malfunction",
+    "severity": "high",
+    "system": "body",
+    "common_causes": ["Faulty ignition switch", "Wiring damage", "Key cylinder worn"],
+    "verified_fix": "Replace ignition switch"
+  },
+  "C0035": {
+    "desc": "Left Front Wheel Speed Sensor Circuit Malfunction",
+    "severity": "moderate",
+    "system": "drivetrain",
+    "common_causes": ["Faulty LF wheel speed sensor", "Damaged tone ring", "Wiring/connector damage"],
+    "verified_fix": "Replace left front wheel speed sensor"
+  },
+  "C0040": {
+    "desc": "Right Front Wheel Speed Sensor Circuit Malfunction",
+    "severity": "moderate",
+    "system": "drivetrain",
+    "common_causes": ["Faulty RF wheel speed sensor", "Damaged tone ring", "Sensor gap too large"],
+    "verified_fix": "Replace right front wheel speed sensor"
+  },
+  "C0045": {
+    "desc": "Left Rear Wheel Speed Sensor Circuit Malfunction",
+    "severity": "moderate",
+    "system": "drivetrain",
+    "common_causes": ["Faulty LR wheel speed sensor", "Damaged tone ring", "Wiring corrosion"],
+    "verified_fix": "Replace left rear wheel speed sensor"
+  },
+  "C0050": {
+    "desc": "Right Rear Wheel Speed Sensor Circuit Malfunction",
+    "severity": "moderate",
+    "system": "drivetrain",
+    "common_causes": ["Faulty RR wheel speed sensor", "Tone ring debris", "Wiring damage"],
+    "verified_fix": "Replace right rear wheel speed sensor"
+  },
+  "C0060": {
+    "desc": "Left Front ABS Solenoid 1 Circuit Malfunction",
+    "severity": "high",
+    "system": "drivetrain",
+    "common_causes": ["Faulty ABS solenoid", "ABS module internal fault", "Wiring open"],
+    "verified_fix": "Replace ABS hydraulic control module"
+  },
+  "C0065": {
+    "desc": "Right Front ABS Solenoid 1 Circuit Malfunction",
+    "severity": "high",
+    "system": "drivetrain",
+    "common_causes": ["Faulty ABS solenoid", "ABS module fault", "Connector issue"],
+    "verified_fix": "Replace ABS hydraulic control module"
+  },
+  "C0070": {
+    "desc": "Left Rear ABS Solenoid 1 Circuit Malfunction",
+    "severity": "high",
+    "system": "drivetrain",
+    "common_causes": ["ABS solenoid failure", "Module internal fault", "Wiring damage"],
+    "verified_fix": "Replace ABS hydraulic control module"
+  },
+  "C0075": {
+    "desc": "Right Rear ABS Solenoid 1 Circuit Malfunction",
+    "severity": "high",
+    "system": "drivetrain",
+    "common_causes": ["ABS solenoid failure", "Module internal fault", "Corroded connector"],
+    "verified_fix": "Replace ABS hydraulic control module"
+  },
+  "C0110": {
+    "desc": "ABS Pump Motor Circuit Malfunction",
+    "severity": "high",
+    "system": "drivetrain",
+    "common_causes": ["ABS pump motor failure", "Relay fault", "Wiring open/short"],
+    "verified_fix": "Replace ABS pump motor assembly"
+  },
+  "C0121": {
+    "desc": "Valve Relay Circuit Malfunction (ABS)",
+    "severity": "high",
+    "system": "drivetrain",
+    "common_causes": ["ABS relay failure", "Wiring fault", "ABS module internal issue"],
+    "verified_fix": "Replace ABS relay; replace module if internal fault"
+  },
+  "C0131": {
+    "desc": "ABS/TCS Brake Switch Circuit Malfunction",
+    "severity": "moderate",
+    "system": "drivetrain",
+    "common_causes": ["Faulty brake light switch", "Misadjusted switch", "Wiring fault"],
+    "verified_fix": "Adjust or replace brake light switch"
+  },
+  "C0161": {
+    "desc": "ABS/TCS Brake Pressure Sensor Circuit Malfunction",
+    "severity": "high",
+    "system": "drivetrain",
+    "common_causes": ["Faulty brake pressure sensor", "Wiring damage", "Connector corrosion"],
+    "verified_fix": "Replace brake pressure sensor"
+  },
+  "C0196": {
+    "desc": "Yaw Rate Sensor Circuit Malfunction",
+    "severity": "high",
+    "system": "drivetrain",
+    "common_causes": ["Faulty yaw rate sensor", "Sensor not calibrated", "Wiring issue"],
+    "verified_fix": "Replace yaw rate sensor; calibrate with scan tool"
+  },
+  "C0200": {
+    "desc": "Lateral Accelerometer Circuit Malfunction",
+    "severity": "high",
+    "system": "drivetrain",
+    "common_causes": ["Faulty lateral accelerometer", "Sensor mounting issue", "Wiring fault"],
+    "verified_fix": "Replace lateral accelerometer; recalibrate stability system"
+  },
+  "C0236": {
+    "desc": "Rear Wheel Speed Sensor Signal Erratic",
+    "severity": "moderate",
+    "system": "drivetrain",
+    "common_causes": ["Damaged rear tone ring", "Loose wheel bearing", "Sensor air gap excessive"],
+    "verified_fix": "Inspect tone ring and bearing; replace wheel speed sensor"
+  },
+  "C0265": {
+    "desc": "EBCM Relay Circuit Malfunction",
+    "severity": "high",
+    "system": "drivetrain",
+    "common_causes": ["Failed EBCM relay", "EBCM module internal fault", "Power supply issue"],
+    "verified_fix": "Replace EBCM module"
+  },
+  "C0283": {
+    "desc": "ESC Steering Wheel Position Sensor Circuit Malfunction",
+    "severity": "moderate",
+    "system": "drivetrain",
+    "common_causes": ["Faulty steering angle sensor", "Sensor not calibrated after alignment", "Clockspring issue"],
+    "verified_fix": "Calibrate steering angle sensor; replace if faulty"
+  },
+  "C0300": {
+    "desc": "Rear Speed Sensor Circuit Malfunction",
+    "severity": "moderate",
+    "system": "drivetrain",
+    "common_causes": ["Faulty rear speed sensor", "Damaged reluctor ring", "Wiring fault"],
+    "verified_fix": "Replace rear speed sensor"
+  },
+  "C0455": {
+    "desc": "Front Steering Position Sensor Circuit Malfunction",
+    "severity": "moderate",
+    "system": "drivetrain",
+    "common_causes": ["Faulty steering position sensor", "Wiring damage", "After alignment without reset"],
+    "verified_fix": "Recalibrate or replace steering position sensor"
+  },
+  "C0550": {
+    "desc": "ECU Malfunction (Electronic Stability Control)",
+    "severity": "high",
+    "system": "drivetrain",
+    "common_causes": ["ESC module internal fault", "Power supply issue", "Software corruption"],
+    "verified_fix": "Reflash ESC module; replace if internal failure"
+  },
+  "C1095": {
+    "desc": "ABS Hydraulic Pump Motor Circuit Failure",
+    "severity": "high",
+    "system": "drivetrain",
+    "common_causes": ["ABS pump motor burned out", "Relay failure", "Wiring short"],
+    "verified_fix": "Replace ABS hydraulic pump motor assembly"
+  },
+  "C1201": {
+    "desc": "Engine Control System Malfunction (ABS/VSC Link)",
+    "severity": "moderate",
+    "system": "drivetrain",
+    "common_causes": ["Engine code triggering VSC/ABS light", "Communication fault", "ECM issue"],
+    "verified_fix": "Fix underlying engine code first; C1201 will clear"
+  },
+  "U0001": {
+    "desc": "High Speed CAN Communication Bus",
+    "severity": "high",
+    "system": "network",
+    "common_causes": ["CAN bus wiring open/short", "Terminating resistor missing", "Module failure flooding bus"],
+    "verified_fix": "Inspect CAN High and CAN Low wiring; check terminating resistors"
+  },
+  "U0002": {
+    "desc": "High Speed CAN Communication Bus Performance",
+    "severity": "high",
+    "system": "network",
+    "common_causes": ["Intermittent CAN bus fault", "Noisy signal", "Damaged wiring"],
+    "verified_fix": "Test CAN bus signal quality with oscilloscope; repair wiring"
+  },
+  "U0073": {
+    "desc": "Control Module Communication Bus A Off",
+    "severity": "high",
+    "system": "network",
+    "common_causes": ["CAN bus wiring shorted", "Module pulling bus down", "Gateway module fault"],
+    "verified_fix": "Isolate faulty module by disconnecting modules one at a time"
+  },
+  "U0100": {
+    "desc": "Lost Communication with ECM/PCM A",
+    "severity": "high",
+    "system": "network",
+    "common_causes": ["ECM power supply issue", "CAN bus wiring fault", "ECM failure"],
+    "verified_fix": "Check ECM power and ground; repair CAN bus wiring"
+  },
+  "U0101": {
+    "desc": "Lost Communication with TCM",
+    "severity": "high",
+    "system": "network",
+    "common_causes": ["TCM power/ground issue", "CAN bus wiring to TCM", "TCM failure"],
+    "verified_fix": "Check TCM power and ground; repair CAN bus wiring to TCM"
+  },
+  "U0107": {
+    "desc": "Lost Communication with Throttle Actuator Control Module",
+    "severity": "high",
+    "system": "network",
+    "common_causes": ["Electronic throttle module fault", "CAN bus issue", "Wiring damage"],
+    "verified_fix": "Check electronic throttle body connections; replace throttle body"
+  },
+  "U0121": {
+    "desc": "Lost Communication with ABS Module",
+    "severity": "high",
+    "system": "network",
+    "common_causes": ["ABS module power/ground lost", "CAN bus wiring fault", "ABS module failure"],
+    "verified_fix": "Check ABS module power and ground; repair CAN bus connection"
+  },
+  "U0122": {
+    "desc": "Lost Communication with Vehicle Dynamics Control Module",
+    "severity": "high",
+    "system": "network",
+    "common_causes": ["ESC module power lost", "CAN bus fault", "Module failure"],
+    "verified_fix": "Check ESC module power and ground connections"
+  },
+  "U0140": {
+    "desc": "Lost Communication with Body Control Module",
+    "severity": "high",
+    "system": "network",
+    "common_causes": ["BCM power/ground issue", "CAN bus wiring fault", "BCM failure"],
+    "verified_fix": "Check BCM power supply and grounds; repair CAN bus wiring"
+  },
+  "U0141": {
+    "desc": "Lost Communication with Body Control Module A",
+    "severity": "high",
+    "system": "network",
+    "common_causes": ["BCM A power/ground lost", "CAN bus open", "Module failure"],
+    "verified_fix": "Inspect BCM A connectors; check CAN bus wiring"
+  },
+  "U0151": {
+    "desc": "Lost Communication with Restraints Control Module",
+    "severity": "high",
+    "system": "network",
+    "common_causes": ["Airbag module power lost", "CAN bus fault to SRS module", "Module failure"],
+    "verified_fix": "Check airbag module power/ground; repair CAN bus connection"
+  },
+  "U0155": {
+    "desc": "Lost Communication with Instrument Panel Cluster",
+    "severity": "moderate",
+    "system": "network",
+    "common_causes": ["Cluster power supply issue", "CAN bus wiring fault", "Cluster failure"],
+    "verified_fix": "Check cluster power/ground; repair CAN bus connection to cluster"
+  },
+  "U0164": {
+    "desc": "Lost Communication with HVAC Control Module",
+    "severity": "low",
+    "system": "network",
+    "common_causes": ["HVAC module power issue", "CAN bus wiring fault", "Module failure"],
+    "verified_fix": "Check HVAC module power supply; repair CAN bus wiring"
+  },
+  "U0184": {
+    "desc": "Lost Communication with Radio/Entertainment System",
+    "severity": "low",
+    "system": "network",
+    "common_causes": ["Radio module power lost", "CAN bus fault", "Radio unit failure"],
+    "verified_fix": "Check radio power supply and fuse; repair CAN bus connection"
+  },
+  "U0199": {
+    "desc": "Lost Communication with Door Control Module A",
+    "severity": "low",
+    "system": "network",
+    "common_causes": ["Door module power lost", "Broken wire in door harness", "Module failure"],
+    "verified_fix": "Inspect door harness wiring; replace door module"
+  },
+  "U0293": {
+    "desc": "Powertrain Control Module Requested MIL Illumination",
+    "severity": "moderate",
+    "system": "network",
+    "common_causes": ["PCM has stored diagnostic code", "Communication issue", "Emissions fault"],
+    "verified_fix": "Read PCM codes for specific fault; address underlying issue"
+  },
+  "U0401": {
+    "desc": "Invalid Data Received from ECM/PCM",
+    "severity": "high",
+    "system": "network",
+    "common_causes": ["ECM sending corrupt data", "CAN bus noise", "Software incompatibility"],
+    "verified_fix": "Reflash ECM with latest calibration; check CAN bus integrity"
+  },
+  "U0402": {
+    "desc": "Invalid Data Received from TCM",
+    "severity": "high",
+    "system": "network",
+    "common_causes": ["TCM sending invalid data", "CAN bus interference", "Module software issue"],
+    "verified_fix": "Reflash TCM; repair CAN bus wiring"
+  },
+  "U1000": {
+    "desc": "Class 2 Communication Malfunction",
+    "severity": "high",
+    "system": "network",
+    "common_causes": ["Serial data bus fault", "Module pulling bus down", "Wiring short"],
+    "verified_fix": "Isolate faulty module on serial bus; repair wiring"
+  },
+  "U1041": {
+    "desc": "Loss of EBCM Communication",
+    "severity": "high",
+    "system": "network",
+    "common_causes": ["EBCM module fault", "Bus wiring open/short", "Connector corrosion"],
+    "verified_fix": "Check EBCM connections; repair bus wiring"
+  },
+  "U1073": {
+    "desc": "Loss of Communication with Immobilizer Module",
+    "severity": "high",
+    "system": "network",
+    "common_causes": ["Immobilizer module fault", "Key transponder issue", "Wiring fault"],
+    "verified_fix": "Check immobilizer module connections; reprogram key"
+  },
+  "U1096": {
+    "desc": "Loss of Communication with Instrument Panel Cluster",
+    "severity": "moderate",
+    "system": "network",
+    "common_causes": ["Cluster power issue", "Serial bus wiring fault", "Cluster failure"],
+    "verified_fix": "Repair bus wiring to instrument cluster; replace cluster if needed"
+  }
+}

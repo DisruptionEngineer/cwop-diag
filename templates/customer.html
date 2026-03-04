@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=720, initial-scale=1.0, user-scalable=no">
+    <title>{{ shop_name }} — Vehicle Health Check</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/customer.css">
+</head>
+<body>
+    <!-- Ambient glow -->
+    <div class="ambient-glow"></div>
+
+    <!-- Header -->
+    <header>
+        <div class="shop-name">{{ shop_name }}</div>
+        <div class="shop-tagline">Vehicle Health Check</div>
+    </header>
+
+    <!-- State: Idle / Welcome -->
+    <main id="stateIdle" class="screen-state active">
+        <div class="welcome-icon">
+            <svg width="140" height="140" viewBox="0 0 140 140" fill="none">
+                <circle cx="70" cy="70" r="64" stroke="#10B981" stroke-width="1.5" opacity="0.2"/>
+                <circle cx="70" cy="70" r="48" stroke="#10B981" stroke-width="1.5" opacity="0.35"/>
+                <circle cx="70" cy="70" r="30" stroke="#10B981" stroke-width="2" class="pulse-ring"/>
+                <!-- Car silhouette -->
+                <path d="M42 78 L52 64 L66 58 L88 58 L98 68 L102 78 L38 78 Z" fill="#10B981" opacity="0.7"/>
+                <rect x="46" y="78" width="48" height="4" rx="2" fill="#10B981" opacity="0.4"/>
+                <circle cx="52" cy="82" r="5" fill="#10B981" opacity="0.8"/>
+                <circle cx="88" cy="82" r="5" fill="#10B981" opacity="0.8"/>
+                <!-- Diagnostic pulse -->
+                <line x1="60" y1="50" x2="70" y2="42" stroke="#10B981" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+                <line x1="70" y1="42" x2="80" y2="50" stroke="#10B981" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+                <circle cx="70" cy="38" r="3" fill="#10B981" opacity="0.6"/>
+            </svg>
+        </div>
+        <h1 class="welcome-title">Welcome</h1>
+        <p class="welcome-sub">Your vehicle diagnostic will appear here<br>once the technician begins the scan.</p>
+    </main>
+
+    <!-- State: Scanning -->
+    <main id="stateScanning" class="screen-state">
+        <div class="scan-icon">
+            <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
+                <!-- Outer radar ring -->
+                <circle cx="60" cy="60" r="54" stroke="#10B981" stroke-width="1.5" stroke-dasharray="6 4" class="spin"/>
+                <!-- Inner radar ring -->
+                <circle cx="60" cy="60" r="36" stroke="#10B981" stroke-width="1.5" stroke-dasharray="4 3" class="spin-reverse"/>
+                <!-- Sweep line -->
+                <line x1="60" y1="60" x2="60" y2="10" stroke="#10B981" stroke-width="2" stroke-linecap="round" opacity="0.6" class="spin-slow"/>
+                <!-- Center dot -->
+                <circle cx="60" cy="60" r="6" fill="#10B981" class="pulse-dot"/>
+                <circle cx="60" cy="60" r="10" stroke="#10B981" stroke-width="1" opacity="0.3"/>
+            </svg>
+        </div>
+        <h1 class="scan-title">Scanning Your Vehicle</h1>
+        <p class="scan-sub">Reading diagnostic data from your vehicle's computer...</p>
+        <div class="scan-dots"><span>.</span><span>.</span><span>.</span></div>
+    </main>
+
+    <!-- State: Results (diagnosed / estimated) -->
+    <main id="stateResults" class="screen-state">
+        <div class="results-container">
+            <!-- Vehicle Info (shown when decoded) -->
+            <div id="vehicleCard" class="customer-vehicle-card" style="display:none;">
+                <div class="cv-info">
+                    <div class="cv-name" id="cvName"></div>
+                    <div class="cv-vin" id="cvVin"></div>
+                </div>
+                <div class="cv-health" id="cvHealth" style="display:none;">
+                    <div class="cv-score" id="cvScore">--</div>
+                    <div class="cv-grade" id="cvGrade">Health</div>
+                </div>
+            </div>
+
+            <!-- Issue Count Badge -->
+            <div class="issue-badge">
+                <div class="issue-count" id="issueCount">0</div>
+                <div class="issue-label">Issues Found</div>
+            </div>
+
+            <!-- DTC Summary -->
+            <div id="dtcSummary" class="dtc-summary"></div>
+
+            <!-- Customer-Friendly Diagnosis -->
+            <div class="diagnosis-card">
+                <div class="diagnosis-text" id="customerDiagnosis">
+                    Analyzing your vehicle...
+                </div>
+            </div>
+
+            <!-- Estimate (shown when status=estimated) -->
+            <div id="estimateCard" class="estimate-card hidden">
+                <h2 class="estimate-title">Repair Estimate</h2>
+                <div class="estimate-rows">
+                    <div class="estimate-row">
+                        <span>Diagnostic Fee</span>
+                        <span id="estDiagFee">$50.00</span>
+                    </div>
+                    <div class="estimate-row">
+                        <span>Parts</span>
+                        <span id="estParts">$0.00</span>
+                    </div>
+                    <div class="estimate-row">
+                        <span>Labor</span>
+                        <span id="estLabor">$0.00</span>
+                    </div>
+                    <div class="estimate-divider"></div>
+                    <div class="estimate-row total">
+                        <span>Total</span>
+                        <span id="estTotal">$50.00</span>
+                    </div>
+                </div>
+
+                <button id="payBtn" class="pay-button" onclick="startPayment()">
+                    <span class="pay-text">Pay Now</span>
+                    <span class="pay-amount" id="payAmount">$50.00</span>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- State: Paying -->
+    <main id="statePaying" class="screen-state">
+        <div class="paying-icon">
+            <svg width="100" height="100" viewBox="0 0 100 100" fill="none">
+                <circle cx="50" cy="50" r="44" stroke="#10B981" stroke-width="2.5" stroke-dasharray="12 6" class="spin"/>
+                <circle cx="50" cy="50" r="28" stroke="#10B981" stroke-width="1.5" opacity="0.3" stroke-dasharray="4 4" class="spin-reverse"/>
+            </svg>
+        </div>
+        <h1 class="paying-title">Processing Payment</h1>
+        <p class="paying-sub">Please wait...</p>
+    </main>
+
+    <!-- State: Paid -->
+    <main id="statePaid" class="screen-state">
+        <div class="paid-icon">
+            <svg width="130" height="130" viewBox="0 0 130 130" fill="none">
+                <circle cx="65" cy="65" r="58" fill="#10B981" opacity="0.08"/>
+                <circle cx="65" cy="65" r="48" stroke="#10B981" stroke-width="2.5"/>
+                <path d="M42 65 L56 79 L88 47" stroke="#10B981" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+        <h1 class="paid-title">Payment Complete</h1>
+        <p class="paid-sub">Thank you for choosing</p>
+        <p class="paid-shop" id="paidShopName">{{ shop_name }}</p>
+        <div class="paid-amount" id="paidAmount"></div>
+        <p class="paid-note">Your receipt has been recorded.<br>Have a great day!</p>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <span class="footer-brand">CWOP<span class="footer-brand-dim">DIAG</span></span>
+    </footer>
+
+    <script>
+        const STRIPE_KEY = "{{ stripe_key }}";
+    </script>
+    <script src="/static/customer.js"></script>
+</body>
+</html>

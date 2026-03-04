@@ -30,6 +30,7 @@ import time
 SCENARIOS = {
     "lean": {
         "name": "Lean Condition",
+        "description": "Engine running lean on both banks — vacuum leak or fuel delivery issue",
         "dtcs": ["P0171", "P0174"],
         "pids": {
             "010C": {"name": "RPM", "value": 750, "jitter": 30, "formula": lambda v: format_rpm(v)},
@@ -49,6 +50,7 @@ SCENARIOS = {
     },
     "misfire": {
         "name": "Cylinder Misfire",
+        "description": "Random and cylinder-specific misfires — ignition or fuel issue",
         "dtcs": ["P0300", "P0301"],
         "pids": {
             "010C": {"name": "RPM", "value": 685, "jitter": 60, "formula": lambda v: format_rpm(v)},
@@ -68,6 +70,7 @@ SCENARIOS = {
     },
     "catalyst": {
         "name": "Catalytic Converter",
+        "description": "Catalyst efficiency below threshold — aging or failing converter",
         "dtcs": ["P0420"],
         "pids": {
             "010C": {"name": "RPM", "value": 740, "jitter": 25, "formula": lambda v: format_rpm(v)},
@@ -87,6 +90,7 @@ SCENARIOS = {
     },
     "overheat": {
         "name": "Overheating",
+        "description": "Engine overheating — coolant system failure or fan issue",
         "dtcs": ["P0217", "P0116"],
         "pids": {
             "010C": {"name": "RPM", "value": 780, "jitter": 40, "formula": lambda v: format_rpm(v)},
@@ -106,6 +110,7 @@ SCENARIOS = {
     },
     "trans": {
         "name": "Transmission Fault",
+        "description": "Transmission slipping or incorrect gear ratio",
         "dtcs": ["P0700", "P0730"],
         "pids": {
             "010C": {"name": "RPM", "value": 1250, "jitter": 100, "formula": lambda v: format_rpm(v)},
@@ -121,6 +126,166 @@ SCENARIOS = {
             "0109": {"name": "LTFT B2", "value": 1.8, "jitter": 0.3, "formula": lambda v: format_fuel_trim(v)},
             "010E": {"name": "Timing Adv", "value": 12.0, "jitter": 2, "formula": lambda v: format_timing(v)},
             "0114": {"name": "O2 B1S1", "value": 0.48, "jitter": 0.1, "formula": lambda v: format_o2(v)},
+        },
+    },
+    "oil_pressure": {
+        "name": "Oil Pressure Warning",
+        "description": "Low oil pressure sensor reading — possible oil pump or sensor issue",
+        "dtcs": ["P0520", "P0521"],
+        "pids": {
+            "010C": {"name": "RPM", "value": 740, "jitter": 25, "formula": lambda v: format_rpm(v)},
+            "010D": {"name": "Speed", "value": 0, "jitter": 0, "formula": lambda v: format_byte(v)},
+            "0105": {"name": "Coolant Temp", "value": 90, "jitter": 2, "formula": lambda v: format_temp(v)},
+            "010F": {"name": "Intake Temp", "value": 33, "jitter": 2, "formula": lambda v: format_temp(v)},
+            "0110": {"name": "MAF", "value": 3.5, "jitter": 0.3, "formula": lambda v: format_maf(v)},
+            "0111": {"name": "Throttle", "value": 15, "jitter": 1, "formula": lambda v: format_percent(v)},
+            "0104": {"name": "Engine Load", "value": 19, "jitter": 2, "formula": lambda v: format_percent(v)},
+            "0106": {"name": "STFT B1", "value": 0.5, "jitter": 0.8, "formula": lambda v: format_fuel_trim(v)},
+            "0107": {"name": "LTFT B1", "value": 1.2, "jitter": 0.3, "formula": lambda v: format_fuel_trim(v)},
+            "0108": {"name": "STFT B2", "value": 0.3, "jitter": 0.6, "formula": lambda v: format_fuel_trim(v)},
+            "0109": {"name": "LTFT B2", "value": 1.0, "jitter": 0.3, "formula": lambda v: format_fuel_trim(v)},
+            "010E": {"name": "Timing Adv", "value": 14.0, "jitter": 1, "formula": lambda v: format_timing(v)},
+            "0114": {"name": "O2 B1S1", "value": 0.47, "jitter": 0.1, "formula": lambda v: format_o2(v)},
+        },
+    },
+    "low_coolant": {
+        "name": "Stuck Thermostat / Low Coolant",
+        "description": "Thermostat stuck open — engine not reaching operating temperature",
+        "dtcs": ["P0117", "P0128"],
+        "pids": {
+            "010C": {"name": "RPM", "value": 780, "jitter": 30, "formula": lambda v: format_rpm(v)},
+            "010D": {"name": "Speed", "value": 0, "jitter": 0, "formula": lambda v: format_byte(v)},
+            "0105": {"name": "Coolant Temp", "value": 55, "jitter": 3, "formula": lambda v: format_temp(v)},
+            "010F": {"name": "Intake Temp", "value": 28, "jitter": 2, "formula": lambda v: format_temp(v)},
+            "0110": {"name": "MAF", "value": 3.8, "jitter": 0.4, "formula": lambda v: format_maf(v)},
+            "0111": {"name": "Throttle", "value": 16, "jitter": 1, "formula": lambda v: format_percent(v)},
+            "0104": {"name": "Engine Load", "value": 24, "jitter": 3, "formula": lambda v: format_percent(v)},
+            "0106": {"name": "STFT B1", "value": 4.5, "jitter": 1.5, "formula": lambda v: format_fuel_trim(v)},
+            "0107": {"name": "LTFT B1", "value": 5.8, "jitter": 0.5, "formula": lambda v: format_fuel_trim(v)},
+            "0108": {"name": "STFT B2", "value": 3.8, "jitter": 1.2, "formula": lambda v: format_fuel_trim(v)},
+            "0109": {"name": "LTFT B2", "value": 5.2, "jitter": 0.4, "formula": lambda v: format_fuel_trim(v)},
+            "010E": {"name": "Timing Adv", "value": 12.0, "jitter": 1.5, "formula": lambda v: format_timing(v)},
+            "0114": {"name": "O2 B1S1", "value": 0.40, "jitter": 0.12, "formula": lambda v: format_o2(v)},
+        },
+    },
+    "o2_sensor": {
+        "name": "O2 Sensor Fault",
+        "description": "Oxygen sensor stuck low — inaccurate air/fuel readings",
+        "dtcs": ["P0131", "P0133"],
+        "pids": {
+            "010C": {"name": "RPM", "value": 730, "jitter": 25, "formula": lambda v: format_rpm(v)},
+            "010D": {"name": "Speed", "value": 0, "jitter": 0, "formula": lambda v: format_byte(v)},
+            "0105": {"name": "Coolant Temp", "value": 91, "jitter": 2, "formula": lambda v: format_temp(v)},
+            "010F": {"name": "Intake Temp", "value": 33, "jitter": 2, "formula": lambda v: format_temp(v)},
+            "0110": {"name": "MAF", "value": 3.6, "jitter": 0.3, "formula": lambda v: format_maf(v)},
+            "0111": {"name": "Throttle", "value": 15, "jitter": 1, "formula": lambda v: format_percent(v)},
+            "0104": {"name": "Engine Load", "value": 21, "jitter": 2, "formula": lambda v: format_percent(v)},
+            "0106": {"name": "STFT B1", "value": 5.5, "jitter": 2, "formula": lambda v: format_fuel_trim(v)},
+            "0107": {"name": "LTFT B1", "value": 8.2, "jitter": 0.5, "formula": lambda v: format_fuel_trim(v)},
+            "0108": {"name": "STFT B2", "value": 1.0, "jitter": 0.8, "formula": lambda v: format_fuel_trim(v)},
+            "0109": {"name": "LTFT B2", "value": 1.5, "jitter": 0.3, "formula": lambda v: format_fuel_trim(v)},
+            "010E": {"name": "Timing Adv", "value": 13.5, "jitter": 1, "formula": lambda v: format_timing(v)},
+            "0114": {"name": "O2 B1S1", "value": 0.15, "jitter": 0.03, "formula": lambda v: format_o2(v)},
+        },
+    },
+    "egr": {
+        "name": "EGR System Fault",
+        "description": "Exhaust gas recirculation valve clogged or stuck",
+        "dtcs": ["P0401", "P0402"],
+        "pids": {
+            "010C": {"name": "RPM", "value": 720, "jitter": 45, "formula": lambda v: format_rpm(v)},
+            "010D": {"name": "Speed", "value": 0, "jitter": 0, "formula": lambda v: format_byte(v)},
+            "0105": {"name": "Coolant Temp", "value": 93, "jitter": 2, "formula": lambda v: format_temp(v)},
+            "010F": {"name": "Intake Temp", "value": 48, "jitter": 4, "formula": lambda v: format_temp(v)},
+            "0110": {"name": "MAF", "value": 3.2, "jitter": 0.6, "formula": lambda v: format_maf(v)},
+            "0111": {"name": "Throttle", "value": 15, "jitter": 2, "formula": lambda v: format_percent(v)},
+            "0104": {"name": "Engine Load", "value": 23, "jitter": 4, "formula": lambda v: format_percent(v)},
+            "0106": {"name": "STFT B1", "value": 1.8, "jitter": 1.2, "formula": lambda v: format_fuel_trim(v)},
+            "0107": {"name": "LTFT B1", "value": 2.5, "jitter": 0.3, "formula": lambda v: format_fuel_trim(v)},
+            "0108": {"name": "STFT B2", "value": 1.2, "jitter": 1, "formula": lambda v: format_fuel_trim(v)},
+            "0109": {"name": "LTFT B2", "value": 2.0, "jitter": 0.3, "formula": lambda v: format_fuel_trim(v)},
+            "010E": {"name": "Timing Adv", "value": 11.0, "jitter": 2, "formula": lambda v: format_timing(v)},
+            "0114": {"name": "O2 B1S1", "value": 0.50, "jitter": 0.12, "formula": lambda v: format_o2(v)},
+        },
+    },
+    "evap": {
+        "name": "EVAP System Leak",
+        "description": "Fuel vapor leak detected — often a loose gas cap",
+        "dtcs": ["P0440", "P0455"],
+        "pids": {
+            "010C": {"name": "RPM", "value": 745, "jitter": 20, "formula": lambda v: format_rpm(v)},
+            "010D": {"name": "Speed", "value": 0, "jitter": 0, "formula": lambda v: format_byte(v)},
+            "0105": {"name": "Coolant Temp", "value": 90, "jitter": 2, "formula": lambda v: format_temp(v)},
+            "010F": {"name": "Intake Temp", "value": 32, "jitter": 2, "formula": lambda v: format_temp(v)},
+            "0110": {"name": "MAF", "value": 3.6, "jitter": 0.3, "formula": lambda v: format_maf(v)},
+            "0111": {"name": "Throttle", "value": 15, "jitter": 1, "formula": lambda v: format_percent(v)},
+            "0104": {"name": "Engine Load", "value": 21, "jitter": 2, "formula": lambda v: format_percent(v)},
+            "0106": {"name": "STFT B1", "value": 0.8, "jitter": 0.8, "formula": lambda v: format_fuel_trim(v)},
+            "0107": {"name": "LTFT B1", "value": 1.2, "jitter": 0.3, "formula": lambda v: format_fuel_trim(v)},
+            "0108": {"name": "STFT B2", "value": 0.5, "jitter": 0.6, "formula": lambda v: format_fuel_trim(v)},
+            "0109": {"name": "LTFT B2", "value": 1.0, "jitter": 0.3, "formula": lambda v: format_fuel_trim(v)},
+            "010E": {"name": "Timing Adv", "value": 15.0, "jitter": 1, "formula": lambda v: format_timing(v)},
+            "0114": {"name": "O2 B1S1", "value": 0.48, "jitter": 0.1, "formula": lambda v: format_o2(v)},
+        },
+    },
+    "idle": {
+        "name": "High Idle / Idle Control",
+        "description": "Engine idling too high — idle air control valve issue",
+        "dtcs": ["P0505", "P0507"],
+        "pids": {
+            "010C": {"name": "RPM", "value": 1100, "jitter": 50, "formula": lambda v: format_rpm(v)},
+            "010D": {"name": "Speed", "value": 0, "jitter": 0, "formula": lambda v: format_byte(v)},
+            "0105": {"name": "Coolant Temp", "value": 91, "jitter": 2, "formula": lambda v: format_temp(v)},
+            "010F": {"name": "Intake Temp", "value": 34, "jitter": 2, "formula": lambda v: format_temp(v)},
+            "0110": {"name": "MAF", "value": 5.2, "jitter": 0.6, "formula": lambda v: format_maf(v)},
+            "0111": {"name": "Throttle", "value": 15, "jitter": 1, "formula": lambda v: format_percent(v)},
+            "0104": {"name": "Engine Load", "value": 28, "jitter": 3, "formula": lambda v: format_percent(v)},
+            "0106": {"name": "STFT B1", "value": -1.5, "jitter": 1, "formula": lambda v: format_fuel_trim(v)},
+            "0107": {"name": "LTFT B1", "value": -0.8, "jitter": 0.3, "formula": lambda v: format_fuel_trim(v)},
+            "0108": {"name": "STFT B2", "value": -1.2, "jitter": 0.8, "formula": lambda v: format_fuel_trim(v)},
+            "0109": {"name": "LTFT B2", "value": -0.5, "jitter": 0.3, "formula": lambda v: format_fuel_trim(v)},
+            "010E": {"name": "Timing Adv", "value": 16.0, "jitter": 1, "formula": lambda v: format_timing(v)},
+            "0114": {"name": "O2 B1S1", "value": 0.52, "jitter": 0.1, "formula": lambda v: format_o2(v)},
+        },
+    },
+    "knock": {
+        "name": "Engine Knock / Detonation",
+        "description": "Knock sensor detecting detonation — timing retarded",
+        "dtcs": ["P0325", "P0332"],
+        "pids": {
+            "010C": {"name": "RPM", "value": 735, "jitter": 50, "formula": lambda v: format_rpm(v)},
+            "010D": {"name": "Speed", "value": 0, "jitter": 0, "formula": lambda v: format_byte(v)},
+            "0105": {"name": "Coolant Temp", "value": 95, "jitter": 3, "formula": lambda v: format_temp(v)},
+            "010F": {"name": "Intake Temp", "value": 38, "jitter": 3, "formula": lambda v: format_temp(v)},
+            "0110": {"name": "MAF", "value": 3.4, "jitter": 0.5, "formula": lambda v: format_maf(v)},
+            "0111": {"name": "Throttle", "value": 15, "jitter": 1, "formula": lambda v: format_percent(v)},
+            "0104": {"name": "Engine Load", "value": 25, "jitter": 4, "formula": lambda v: format_percent(v)},
+            "0106": {"name": "STFT B1", "value": 2.0, "jitter": 1.5, "formula": lambda v: format_fuel_trim(v)},
+            "0107": {"name": "LTFT B1", "value": 3.5, "jitter": 0.5, "formula": lambda v: format_fuel_trim(v)},
+            "0108": {"name": "STFT B2", "value": 1.8, "jitter": 1.2, "formula": lambda v: format_fuel_trim(v)},
+            "0109": {"name": "LTFT B2", "value": 3.0, "jitter": 0.4, "formula": lambda v: format_fuel_trim(v)},
+            "010E": {"name": "Timing Adv", "value": 2.0, "jitter": 1.5, "formula": lambda v: format_timing(v)},
+            "0114": {"name": "O2 B1S1", "value": 0.42, "jitter": 0.12, "formula": lambda v: format_o2(v)},
+        },
+    },
+    "fuel_pressure": {
+        "name": "Low Fuel Pressure",
+        "description": "Fuel rail pressure below normal — weak fuel pump or clogged filter",
+        "dtcs": ["P0190", "P0191"],
+        "pids": {
+            "010C": {"name": "RPM", "value": 710, "jitter": 35, "formula": lambda v: format_rpm(v)},
+            "010D": {"name": "Speed", "value": 0, "jitter": 0, "formula": lambda v: format_byte(v)},
+            "0105": {"name": "Coolant Temp", "value": 89, "jitter": 2, "formula": lambda v: format_temp(v)},
+            "010F": {"name": "Intake Temp", "value": 33, "jitter": 2, "formula": lambda v: format_temp(v)},
+            "0110": {"name": "MAF", "value": 2.8, "jitter": 0.4, "formula": lambda v: format_maf(v)},
+            "0111": {"name": "Throttle", "value": 14, "jitter": 1, "formula": lambda v: format_percent(v)},
+            "0104": {"name": "Engine Load", "value": 20, "jitter": 3, "formula": lambda v: format_percent(v)},
+            "0106": {"name": "STFT B1", "value": 7.5, "jitter": 2, "formula": lambda v: format_fuel_trim(v)},
+            "0107": {"name": "LTFT B1", "value": 9.8, "jitter": 0.5, "formula": lambda v: format_fuel_trim(v)},
+            "0108": {"name": "STFT B2", "value": 6.8, "jitter": 1.8, "formula": lambda v: format_fuel_trim(v)},
+            "0109": {"name": "LTFT B2", "value": 8.5, "jitter": 0.5, "formula": lambda v: format_fuel_trim(v)},
+            "010E": {"name": "Timing Adv", "value": 13.0, "jitter": 1.5, "formula": lambda v: format_timing(v)},
+            "0114": {"name": "O2 B1S1", "value": 0.38, "jitter": 0.15, "formula": lambda v: format_o2(v)},
         },
     },
 }
@@ -435,9 +600,24 @@ def setup_gpio(emulator):
 
 def start_web_control(emulator, port=8080):
     """Simple web interface to switch scenarios."""
-    from flask import Flask, jsonify
+    from flask import Flask, jsonify, request, make_response
 
     web = Flask(__name__)
+
+    def cors_response(data, status=200):
+        """Create a JSON response with CORS headers."""
+        resp = make_response(jsonify(data), status)
+        resp.headers["Access-Control-Allow-Origin"] = "*"
+        resp.headers["Access-Control-Allow-Methods"] = "GET, POST, OPTIONS"
+        resp.headers["Access-Control-Allow-Headers"] = "Content-Type"
+        return resp
+
+    @web.after_request
+    def add_cors(response):
+        response.headers["Access-Control-Allow-Origin"] = "*"
+        response.headers["Access-Control-Allow-Methods"] = "GET, POST, OPTIONS"
+        response.headers["Access-Control-Allow-Headers"] = "Content-Type"
+        return response
 
     @web.route("/")
     def index():
@@ -453,14 +633,41 @@ def start_web_control(emulator, port=8080):
     def set_scenario(name):
         if name in SCENARIOS:
             emulator.set_scenario(name)
-            return jsonify({"status": "ok", "scenario": name, "name": SCENARIOS[name]["name"]})
-        return jsonify({"status": "error", "message": f"Unknown scenario: {name}"}), 400
+            return cors_response({"status": "ok", "scenario": name, "name": SCENARIOS[name]["name"]})
+        return cors_response({"status": "error", "message": f"Unknown scenario: {name}"}, 400)
 
     @web.route("/api/status")
     def status():
-        return jsonify({
+        return cors_response({
             "scenario": emulator.scenario_name,
             "name": emulator.scenario["name"],
+            "dtcs": emulator.scenario["dtcs"],
+            "description": emulator.scenario.get("description", ""),
+        })
+
+    @web.route("/api/scenarios")
+    def list_scenarios():
+        scenarios = []
+        for key, s in SCENARIOS.items():
+            scenarios.append({
+                "key": key,
+                "name": s["name"],
+                "description": s.get("description", ""),
+                "dtcs": s["dtcs"],
+                "active": key == emulator.scenario_name,
+            })
+        return cors_response({"scenarios": scenarios, "count": len(scenarios)})
+
+    @web.route("/api/pids")
+    def current_pids():
+        """Return current PID values decoded as human-readable."""
+        pids = {}
+        for pid_key, pid_info in emulator.scenario["pids"].items():
+            val = pid_info["value"] + random.gauss(0, pid_info["jitter"] * 0.5)
+            pids[pid_info["name"]] = round(val, 2)
+        return cors_response({
+            "scenario": emulator.scenario_name,
+            "pids": pids,
             "dtcs": emulator.scenario["dtcs"],
         })
 

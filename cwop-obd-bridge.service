@@ -1,0 +1,16 @@
+[Unit]
+Description=CWOP OBD Bridge Service
+After=bluetooth.target network.target
+Wants=bluetooth.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/home/pi/cwop-diag
+ExecStart=/usr/bin/python3 /home/pi/cwop-diag/obd_service.py
+Restart=on-failure
+RestartSec=5
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target

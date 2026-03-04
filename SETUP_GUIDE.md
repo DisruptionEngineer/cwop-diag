@@ -249,7 +249,6 @@ sudo nano /etc/systemd/system/cwop-diag.service
 
 Paste the following content:
 
-```ini
 [Unit]
 Description=CWOP-Diag Kiosk
 After=network-online.target
@@ -266,7 +265,6 @@ RestartSec=10
 
 [Install]
 WantedBy=multi-user.target
-```
 
 Save and exit (`Ctrl+X`, `Y`, `Enter`).
 

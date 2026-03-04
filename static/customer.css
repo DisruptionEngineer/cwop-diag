@@ -1,0 +1,662 @@
+/* CWOP-Diag Customer Screen — 720×1280 Touch Display 2 (portrait)
+   Brand: Precision Instrument · Emerald + Deep Dark */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+    --bg: #060b14;
+    --surface: #0c1220;
+    --surface-2: #111827;
+    --surface-3: #1a2332;
+    --border: #1c2a3e;
+    --border-accent: rgba(16, 185, 129, 0.2);
+    --text: #e2e8f0;
+    --text-dim: #64748b;
+    --text-bright: #f1f5f9;
+    --accent: #10B981;
+    --accent-dim: rgba(16, 185, 129, 0.12);
+    --accent-glow: rgba(16, 185, 129, 0.08);
+    --green: #22c55e;
+    --yellow: #eab308;
+    --red: #ef4444;
+    --orange: #f97316;
+    --radius: 12px;
+}
+
+body {
+    width: 720px;
+    min-height: 1280px;
+    overflow-x: hidden;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/* Ambient glow — larger for portrait screen */
+.ambient-glow {
+    position: fixed;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 400px;
+    background: radial-gradient(ellipse, rgba(16, 185, 129, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ─── Header ─── */
+header {
+    text-align: center;
+    padding: 28px 24px 22px;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+}
+
+header::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 10%, var(--accent) 50%, transparent 90%);
+    opacity: 0.35;
+}
+
+.shop-name {
+    font-family: 'Outfit', sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--text-bright);
+    letter-spacing: 0.5px;
+}
+
+.shop-tagline {
+    font-family: 'Outfit', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-top: 6px;
+}
+
+/* ─── Footer ─── */
+footer {
+    text-align: center;
+    padding: 14px;
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    flex-shrink: 0;
+    position: sticky;
+    bottom: 0;
+    z-index: 10;
+}
+
+.footer-brand {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 2px;
+    opacity: 0.5;
+}
+
+.footer-brand-dim {
+    color: var(--text-dim);
+    font-weight: 500;
+}
+
+/* ─── Screen States ─── */
+.screen-state {
+    display: none;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 36px;
+    overflow-y: auto;
+    position: relative;
+    z-index: 1;
+}
+
+.screen-state.active {
+    display: flex;
+}
+
+/* ─── Idle / Welcome ─── */
+
+.welcome-icon {
+    margin-bottom: 36px;
+    opacity: 0.9;
+}
+
+.welcome-icon .pulse-ring {
+    animation: pulse-ring 2.5s ease-in-out infinite;
+}
+
+@keyframes pulse-ring {
+    0%, 100% { opacity: 0.8; r: 30; }
+    50% { opacity: 0.3; r: 34; }
+}
+
+.welcome-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--text-bright);
+    margin-bottom: 14px;
+    letter-spacing: -0.5px;
+}
+
+.welcome-sub {
+    font-family: 'Outfit', sans-serif;
+    font-size: 18px;
+    color: var(--text-dim);
+    text-align: center;
+    line-height: 1.7;
+    font-weight: 400;
+}
+
+/* ─── Scanning ─── */
+
+.scan-icon {
+    margin-bottom: 36px;
+}
+
+.spin {
+    animation: spin 5s linear infinite;
+    transform-origin: center;
+}
+
+.spin-reverse {
+    animation: spin 3.5s linear infinite reverse;
+    transform-origin: center;
+}
+
+.spin-slow {
+    animation: spin 6s linear infinite;
+    transform-origin: 60px 60px;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.pulse-dot {
+    animation: pulse-dot 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.25; }
+}
+
+.scan-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text-bright);
+    margin-bottom: 12px;
+}
+
+.scan-sub {
+    font-family: 'Outfit', sans-serif;
+    font-size: 18px;
+    color: var(--text-dim);
+    text-align: center;
+    font-weight: 400;
+}
+
+.scan-dots {
+    margin-top: 20px;
+    font-size: 36px;
+    color: var(--accent);
+    letter-spacing: 10px;
+}
+
+.scan-dots span {
+    display: inline-block;
+    animation: dot-bounce 1.4s ease-in-out infinite;
+}
+
+.scan-dots span:nth-child(2) { animation-delay: 0.2s; }
+.scan-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes dot-bounce {
+    0%, 80%, 100% { opacity: 0.15; transform: translateY(0); }
+    40% { opacity: 1; transform: translateY(-4px); }
+}
+
+/* ─── Results ─── */
+
+#stateResults {
+    justify-content: flex-start;
+    align-items: stretch;
+    padding-top: 24px;
+    padding-bottom: 24px;
+}
+
+.results-container {
+    width: 100%;
+    max-width: 648px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.issue-badge {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 18px 24px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    position: relative;
+}
+
+.issue-badge::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 12px;
+    bottom: 12px;
+    width: 3px;
+    border-radius: 0 2px 2px 0;
+    background: var(--orange);
+}
+
+.issue-count {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: rgba(249, 115, 22, 0.1);
+    border: 2px solid var(--orange);
+    color: var(--orange);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 28px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.issue-count.clear {
+    background: rgba(16, 185, 129, 0.1);
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.issue-count.high {
+    background: rgba(239, 68, 68, 0.1);
+    border-color: var(--red);
+    color: var(--red);
+}
+
+.issue-badge:has(.issue-count.clear)::before { background: var(--accent); }
+.issue-badge:has(.issue-count.high)::before { background: var(--red); }
+
+.issue-label {
+    font-family: 'Outfit', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--text);
+}
+
+/* DTC Summary */
+.dtc-summary {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.dtc-chip {
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.5px;
+}
+
+.dtc-chip.high { background: rgba(239,68,68,0.1); color: var(--red); border: 1px solid rgba(239,68,68,0.25); }
+.dtc-chip.moderate { background: rgba(249,115,22,0.1); color: var(--orange); border: 1px solid rgba(249,115,22,0.25); }
+.dtc-chip.low { background: rgba(234,179,8,0.1); color: var(--yellow); border: 1px solid rgba(234,179,8,0.25); }
+.dtc-chip.unknown { background: rgba(100,116,139,0.1); color: var(--text-dim); border: 1px solid rgba(100,116,139,0.25); }
+
+/* Diagnosis Card */
+.diagnosis-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 22px 24px;
+    position: relative;
+}
+
+.diagnosis-card::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 24px;
+    right: 24px;
+    height: 1px;
+    background: linear-gradient(90deg, var(--accent) 0%, transparent 100%);
+    opacity: 0.2;
+}
+
+.diagnosis-text {
+    font-family: 'Outfit', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text);
+    white-space: pre-wrap;
+    font-weight: 400;
+}
+
+/* Estimate Card */
+.estimate-card {
+    background: var(--surface);
+    border: 1px solid var(--border-accent);
+    border-radius: var(--radius);
+    padding: 22px 24px;
+    position: relative;
+}
+
+.estimate-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    border-radius: var(--radius) 0 0 var(--radius);
+    background: var(--accent);
+    opacity: 0.5;
+}
+
+.estimate-card.hidden {
+    display: none;
+}
+
+.estimate-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--accent);
+    margin-bottom: 18px;
+}
+
+.estimate-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.estimate-row {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Outfit', sans-serif;
+    font-size: 18px;
+    color: var(--text);
+    font-weight: 400;
+}
+
+.estimate-row span:last-child {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+}
+
+.estimate-row.total {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--text-bright);
+}
+
+.estimate-row.total span:last-child {
+    color: var(--accent);
+    font-weight: 800;
+}
+
+.estimate-divider {
+    height: 1px;
+    background: var(--border);
+    margin: 4px 0;
+}
+
+/* ─── Pay Button with shimmer ─── */
+.pay-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    width: 100%;
+    padding: 22px;
+    margin-top: 22px;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: var(--radius);
+    font-family: 'Outfit', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+}
+
+.pay-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0% { left: -100%; }
+    50% { left: 100%; }
+    100% { left: 100%; }
+}
+
+.pay-text {
+    position: relative;
+    z-index: 1;
+}
+
+.pay-amount {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 800;
+    position: relative;
+    z-index: 1;
+}
+
+.pay-button:hover {
+    background: #059669;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 20px rgba(16, 185, 129, 0.3);
+}
+
+.pay-button:active {
+    background: #047857;
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+.pay-button:disabled {
+    background: var(--surface-2);
+    color: var(--text-dim);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.pay-button:disabled::after {
+    display: none;
+}
+
+/* ─── Paying ─── */
+
+.paying-icon {
+    margin-bottom: 36px;
+}
+
+.paying-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text-bright);
+    margin-bottom: 12px;
+}
+
+.paying-sub {
+    font-family: 'Outfit', sans-serif;
+    font-size: 18px;
+    color: var(--text-dim);
+    font-weight: 400;
+}
+
+/* ─── Paid ─── */
+
+.paid-icon {
+    margin-bottom: 28px;
+}
+
+.paid-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 38px;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 8px;
+}
+
+.paid-sub {
+    font-family: 'Outfit', sans-serif;
+    font-size: 18px;
+    color: var(--text-dim);
+    margin-bottom: 4px;
+    font-weight: 400;
+}
+
+.paid-shop {
+    font-family: 'Outfit', sans-serif;
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--text-bright);
+    margin-bottom: 24px;
+}
+
+.paid-amount {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 52px;
+    font-weight: 800;
+    color: var(--accent);
+    margin-bottom: 28px;
+    text-shadow: 0 0 30px rgba(16, 185, 129, 0.2);
+}
+
+.paid-note {
+    font-family: 'Outfit', sans-serif;
+    font-size: 16px;
+    color: var(--text-dim);
+    text-align: center;
+    line-height: 1.7;
+    font-weight: 400;
+}
+
+/* ─── Customer Vehicle Card ─── */
+.customer-vehicle-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 22px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+.cv-info {
+    flex: 1;
+}
+
+.cv-name {
+    font-family: 'Outfit', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-bright);
+}
+
+.cv-vin {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-dim);
+    margin-top: 2px;
+    letter-spacing: 0.5px;
+}
+
+.cv-health {
+    text-align: center;
+    padding: 8px 14px;
+    background: rgba(16, 185, 129, 0.06);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    border-radius: 10px;
+}
+
+.cv-score {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+}
+
+.cv-grade {
+    font-family: 'Outfit', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 2px;
+}
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-dim);
+}
